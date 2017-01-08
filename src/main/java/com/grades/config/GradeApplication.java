@@ -1,8 +1,6 @@
 package com.grades.config;
 
 import com.grades.controller.StudentSubjectController;
-import com.grades.dao.UserDAO;
-import com.grades.domain.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
