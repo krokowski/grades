@@ -1,4 +1,4 @@
-package com.grades.config;
+/*package com.grades.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,9 +6,9 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-/**
+*//**
  * Created by Wojciech.Krokowski on 2017-01-08.
- */
+ *//*
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
@@ -29,4 +29,4 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
-}
+}*/
