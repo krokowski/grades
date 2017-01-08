@@ -1,4 +1,4 @@
-package com.grades.security;
+/*package com.grades.security;
 
 import com.grades.dao.UserDAO;
 import com.grades.domain.User;
@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-/**
+*//**
  * Created by Wojciech.Krokowski on 2017-01-08.
- */
+ *//*
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -28,4 +28,4 @@ public class CustomUserDetailsService implements UserDetailsService {
             };
         }
     }
-}
+}*/
