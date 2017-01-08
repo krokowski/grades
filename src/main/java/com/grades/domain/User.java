@@ -37,4 +37,14 @@ public class User implements Serializable {
 
     private Long pesel;
 
+    public User(User user) {
+        this.userId = user.userId;
+        this.email = user.email;
+        this.password = user.password;
+        this.role = user.role;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.pesel = user.pesel;
+    }
+
 }

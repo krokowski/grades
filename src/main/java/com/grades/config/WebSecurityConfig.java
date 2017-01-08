@@ -1,5 +1,6 @@
-/*package com.grades.config;
+package com.grades.config;
 
+import com.grades.security.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,11 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import security.CustomUserDetailsService;
-
-*//**
+/**
  * Created by Wojciech.Krokowski on 2017-01-08.
- *//*
+ */
 @Configuration
 @EnableWebMvcSecurity
 @ComponentScan(basePackageClasses = CustomUserDetailsService.class)
@@ -53,4 +52,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordencoder(){
         return new BCryptPasswordEncoder();
     }
-}*/
+}
