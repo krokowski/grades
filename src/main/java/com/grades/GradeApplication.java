@@ -1,6 +1,5 @@
 package com.grades;
 
-import com.grades.controller.StudentSubjectController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
