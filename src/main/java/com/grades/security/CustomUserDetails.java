@@ -1,24 +1,25 @@
 package com.grades.security;
 
-import com.grades.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.grades.dto.UserDTO;
 
 import java.util.Collection;
 
 /**
  * Created by Wojciech.Krokowski on 2017-01-08.
  */
-public class CustomUserDetails extends User implements UserDetails {
+public class CustomUserDetails extends UserDTO implements UserDetails {
 
-    public CustomUserDetails(User user){
+    public CustomUserDetails(UserDTO user){
         super(user);
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return AuthorityUtils.commaSeparatedStringToAuthorityList(super.getRole());
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(super.getRole().toString());
     }
 
     @Override

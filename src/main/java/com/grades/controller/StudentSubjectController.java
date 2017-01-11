@@ -1,7 +1,7 @@
 package com.grades.controller;
 
 import com.grades.dao.UserDAO;
-import com.grades.domain.User;
+import com.grades.dto.UserDTO;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.grades.dao")
-@EntityScan(basePackages = "com.grades.domain")
+@EntityScan(basePackages = "com.grades.dto")
 public class GradeApplication {
 
 	public static void main(String[] args) {

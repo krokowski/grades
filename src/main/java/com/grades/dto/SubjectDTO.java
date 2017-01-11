@@ -1,4 +1,4 @@
-package com.grades.domain;
+package com.grades.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Subject {
+@Table(name = "subject")
+public class SubjectDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

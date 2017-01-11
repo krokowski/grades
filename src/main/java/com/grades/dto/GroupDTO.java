@@ -1,4 +1,4 @@
-package com.grades.domain;
+package com.grades.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,22 +13,13 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubjectBlock {
+@Table(name = "group")
+public class GroupDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "subject_block_id")
-    private Long subjectBlockId;
-
-    @Column(name = "subject_id")
-    private Long subjectId;
-
-    @Column(name = "subject_form_id")
-    private Long subjectFormId;
-
     @Column(name = "group_id")
     private Long groupId;
 
-    @Column(name = "worker_id")
-    private Long workerId;
+    private String name;
 }

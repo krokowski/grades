@@ -1,4 +1,4 @@
-package com.grades.domain;
+package com.grades.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,8 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Grade {
+@Table(name = "grade")
+public class GradeDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

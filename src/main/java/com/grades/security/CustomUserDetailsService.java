@@ -1,7 +1,8 @@
 package com.grades.security;
 
 import com.grades.dao.UserDAO;
-import com.grades.domain.User;
+import com.grades.dto.UserDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user=userDAO.findByEmail(email);
+        UserDTO user=userDAO.findByEmail(email);
         if(null == user){
             throw new UsernameNotFoundException("No user present with email: " + email);
         }else{

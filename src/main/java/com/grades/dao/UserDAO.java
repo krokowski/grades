@@ -1,15 +1,18 @@
 package com.grades.dao;
 
-import com.grades.domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import com.grades.dto.UserDTO;
 
 /**
  * Created by Wojciech.Krokowski on 2017-01-08.
  */
 @Repository
-public interface UserDAO extends CrudRepository<User, Long> {
+public interface UserDAO extends CrudRepository<UserDTO, Long> {
 
-    User findByEmail(String email);
+    UserDTO findByEmail(String email);
+    
+    UserDTO findByUserId(Long userId);
 
 }

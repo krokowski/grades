@@ -1,4 +1,4 @@
-package com.grades.domain;
+package com.grades.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,12 +13,14 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Group {
+@Table(name = "student")
+public class StudentDTO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "group_id")
-    private Long groupId;
+    @Column(name = "index_no")
+    private Long indexNo;
 
-    private String name;
+    @Column(name = "user_id")
+    private Long userId;
 }
