@@ -45,5 +45,17 @@ public class UserService {
 		userDTO = userDAO.save(userDTO);
 		return userDTO.getUserId();
 	}
+	
+	public String getWorkerFirstNameAndLastName(Long workerId) {
+		StringBuilder result = new StringBuilder();
+		Long userId = workerDAO.findByWorkerId(workerId);
+		UserDTO userDTO = userDAO.findByUserId(userId);
+		
+		result.append(userDTO.getFirstName());
+		result.append(" ");
+		result.append(userDTO.getLastName());
+		
+		return result.toString();
+	}
 
 }

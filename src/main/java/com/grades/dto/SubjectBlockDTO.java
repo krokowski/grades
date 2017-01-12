@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.grades.domain.SubjectBlock;
+
 /**
  * Created by Wojciech.Krokowski on 2017-01-08.
  */
@@ -32,4 +34,13 @@ public class SubjectBlockDTO {
 
     @Column(name = "worker_id")
     private Long workerId;
+    
+    public SubjectBlockDTO(SubjectBlock subjectBlock) {
+    	this.subjectBlockId = subjectBlock.getSubjectBlockId();
+    	this.subjectId = subjectBlock.getSubjectId();
+    	this.subjectFormId = subjectBlock.getSubjectFormId();
+    	this.groupId = subjectBlock.getGroupId();
+    	this.workerId = subjectBlock.getWorkerId();
+    }
+    
 }
