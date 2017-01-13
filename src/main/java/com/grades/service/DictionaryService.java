@@ -10,6 +10,7 @@ import com.grades.dao.SubjectFormDAO;
 import com.grades.domain.Dictionary;
 import com.grades.domain.DictionaryElement;
 import com.grades.dto.GroupDTO;
+import com.grades.dto.SubjectBlockDTO;
 import com.grades.dto.SubjectDTO;
 import com.grades.dto.SubjectFormDTO;
 
@@ -24,6 +25,9 @@ public class DictionaryService {
 	
 	@Autowired
 	private GroupDAO groupDAO;
+	
+  @Autowired
+  private UserService userService;
 	
 	public Dictionary getDictionaries() {
 		Iterable<SubjectDTO> subjectDTOList = subjectDAO.findAll();
@@ -58,5 +62,34 @@ public class DictionaryService {
 		groupDTO.setName(dictionaryElement.getName());
 		groupDAO.save(groupDTO);
 	}
+	
+	public String generateDescription(Dictionary dictionary, SubjectBlockDTO subjectBlockDTO) {
+    StringBuilder result = new StringBuilder();
+    
+    for (SubjectDTO subjectDTO : dictionary.getSubjectDict()) {
+      if (subjectBlockDTO.getSubjectId().equals(subjectDTO.getSubjectId())) {
+        result.append(subjectDTO.getName() + " ");
+        break;
+      }
+    }
+    
+    for (SubjectFormDTO subjectFormDTO : dictionary.getSubjectFormDict()) {
+      if (subjectBlockDTO.getSubjectFormId().equals(subjectFormDTO.getSubjectFormId())) {
+        result.append(subjectFormDTO.getName() + " ");
+        break;
+      }
+    }
+    
+    for (GroupDTO groupDTO : dictionary.getGroupDict()) {
+      if (subjectBlockDTO.getGroupId().equals(groupDTO.getGroupId())) {
+        result.append(groupDTO.getName() + " ");
+        break;
+      }
+    }
+    
+    result.append(userService.getWorkerFirstNameAndLastName(subjectBlockDTO.getWorkerId()));
+    
+    return result.toString();
+  }
 
 }
