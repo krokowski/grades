@@ -7,7 +7,7 @@ public class StudentSubject {
 
 	private Long studentSubjectId;
 
-    private Long studentBlockId;
+    private Long subjectBlockId;
 
     private Long indexNo;
 	

@@ -15,7 +15,7 @@ public interface WorkerDAO extends CrudRepository<WorkerDTO, Long> {
 
 	WorkerDTO findByUserId(Long userId);
 	
-	@Query("select user_id from worker where worker_id = ?1")
+	@Query("select userId from WorkerDTO where workerId = ?1")
 	Long findByWorkerId(Long workerId);
 	
 }

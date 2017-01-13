@@ -61,7 +61,7 @@ public class SubjectBlockService {
 	 */
 	public List<SubjectBlock> getAllNonSelectedSubjectBlocks(Long indexNo) {
 		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
-		List<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllNonSelectedForStudent(indexNo);
+		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllNonSelectedForStudent(indexNo);
 		Dictionary dictionary = dictionaryService.getDictionaries();
 		
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {

@@ -24,14 +24,14 @@ public class StudentSubjectDTO {
     private Long studentSubjectId;
 
     @Column(name = "student_block_id")
-    private Long studentBlockId;
+    private Long subjectBlockId;
 
     @Column(name = "index_no")
     private Long indexNo;
     
     public StudentSubjectDTO(StudentSubject studentSubject) {
     	this.studentSubjectId = studentSubject.getStudentSubjectId();
-    	this.studentBlockId = studentSubject.getStudentBlockId();
+    	this.subjectBlockId = studentSubject.getSubjectBlockId();
     	this.indexNo = studentSubject.getIndexNo();
     }
     
