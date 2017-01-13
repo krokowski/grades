@@ -1,6 +1,5 @@
 package com.grades.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,34 +23,34 @@ import com.grades.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
+
 	@Autowired
 	private UserDAO userDAO;
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping
 	public String getUserList(Model model) {
 		model.addAttribute("usersList", userDAO.findAll());
-		return "/user/list";
+		return "user/list";
 	}
-	
+
 	@GetMapping(path = "/{id}")
 	public String getUser(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("user", userService.getUser(id));
-		return "/user/form";
+		return "user/form";
 	}
-	
+
 	@GetMapping(path = "/add")
 	public String getUserForm() {
-		return "/user/form";
+		return "user/form";
 	}
-	
+
 	@PostMapping(path = "/add")
-	public String create(HttpServletRequest request, @ModelAttribute("user") @Valid User user, BindingResult result) {
+	public String create(@ModelAttribute("user") @Valid User user, BindingResult result) {
 		Long userId = userService.addUser(user);
-		return String.format("redirect:/user/%d", userId);
+		return String.format("redirect:user/%d", userId);
 	}
 
 }
