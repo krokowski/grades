@@ -35,19 +35,19 @@ public class StudentSubjectController {
 	public String getStudentSubjectList(Model model) {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("subjectBlockList", subjectBlockService.getAllNonSelectedSubjectBlocks(user.getIndexNo()));
-		return "";
+		return "/studentSubject/list";
 	}
 
 	@GetMapping(path = "/add")
 	public String getStudentSubjectAddForm() {
-		return "";
+		return "/studentSubject/form";
 	}
 
 	@PostMapping(path = "/add")
 	public String createStudentSubject(HttpServletRequest request, @ModelAttribute("studentSubject") @Valid StudentSubject studentSubject,
 			BindingResult result) {
 		studentSubjectService.createStudentSubject(studentSubject);
-		return "";
+		return "/studentSubject/form";
 	}
 
 }
