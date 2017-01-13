@@ -53,6 +53,26 @@ public class SubjectBlockService {
 		subjectBlockDAO.save(subjectBlockDTO);
 	}
 	
+	/**
+	 * Zwraca wszystkie subject-block'i, ktorych dany student nie wybral
+	 * 
+	 * @param studentId
+	 * @return
+	 */
+	public List<SubjectBlock> getAllNonSelectedSubjectBlocks(Long indexNo) {
+		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
+		List<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllNonSelectedForStudent(indexNo);
+		Dictionary dictionary = dictionaryService.getDictionaries();
+		
+		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
+			SubjectBlock subjectBlock = new SubjectBlock(subjectBlockDTO);
+			subjectBlock.setDescription(generateDescription(dictionary, subjectBlockDTO));
+			subjectBlockList.add(subjectBlock);
+		}
+		
+		return subjectBlockList;
+	}
+	
 	private String generateDescription(Dictionary dictionary, SubjectBlockDTO subjectBlockDTO) {
 		StringBuilder result = new StringBuilder();
 		

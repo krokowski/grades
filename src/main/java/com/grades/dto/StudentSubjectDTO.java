@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.grades.domain.StudentSubject;
+
 /**
  * Created by Wojciech.Krokowski on 2017-01-08.
  */
@@ -26,4 +28,11 @@ public class StudentSubjectDTO {
 
     @Column(name = "index_no")
     private Long indexNo;
+    
+    public StudentSubjectDTO(StudentSubject studentSubject) {
+    	this.studentSubjectId = studentSubject.getStudentSubjectId();
+    	this.studentBlockId = studentSubject.getStudentBlockId();
+    	this.indexNo = studentSubject.getIndexNo();
+    }
+    
 }
