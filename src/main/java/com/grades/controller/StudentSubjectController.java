@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.grades.domain.StudentSubject;
-import com.grades.domain.User;
+import com.grades.security.CustomUserDetails;
 import com.grades.service.StudentSubjectService;
 import com.grades.service.SubjectBlockService;
 
@@ -33,15 +33,15 @@ public class StudentSubjectController {
 
 	@GetMapping
 	public String getStudentSubjectList(Model model) {
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		model.addAttribute("subjectBlockList", subjectBlockService.getAllSelectedSubjectBlocks(user.getIndexNo()));
+		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("subjectBlockList", subjectBlockService.getAllSelectedSubjectBlocks(customUserDetails.getUserId()));
 		return "/studentSubject/list";
 	}
 
 	@GetMapping(path = "/add")
 	public String getStudentSubjectAddForm(Model model) {
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		model.addAttribute("subjectBlockList", subjectBlockService.getAllNonSelectedSubjectBlocks(user.getIndexNo()));
+		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("subjectBlockList", subjectBlockService.getAllNonSelectedSubjectBlocks(customUserDetails.getUserId()));
 		return "/studentSubject/form";
 	}
 

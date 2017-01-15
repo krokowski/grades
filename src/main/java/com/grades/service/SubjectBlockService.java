@@ -44,12 +44,12 @@ public class SubjectBlockService {
 	/**
 	 * Zwraca wszystkie subject-block'i, ktore dany student wybral
 	 * 
-	 * @param indexNo
+	 * @param userId
 	 * @return
 	 */
-	public List<SubjectBlock> getAllSelectedSubjectBlocks(Long indexNo) {
+	public List<SubjectBlock> getAllSelectedSubjectBlocks(Long userId) {
 		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
-		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByIndexNo(indexNo);
+		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByUserId(userId);
 		Dictionary dictionary = dictionaryService.getDictionaries();
 
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
@@ -64,12 +64,12 @@ public class SubjectBlockService {
 	/**
 	 * Zwraca wszystkie subject-block'i, ktorych dany student nie wybral
 	 * 
-	 * @param studentId
+	 * @param userId
 	 * @return
 	 */
-	public List<SubjectBlock> getAllNonSelectedSubjectBlocks(Long indexNo) {
+	public List<SubjectBlock> getAllNonSelectedSubjectBlocks(Long userId) {
 		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
-		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllNonSelectedForStudent(indexNo);
+		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllNonSelectedForStudent(userId);
 		Dictionary dictionary = dictionaryService.getDictionaries();
 
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {

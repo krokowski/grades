@@ -29,13 +29,13 @@ public class GradeService {
   /**
    * Metoda uzywana do wygenerowania slownika z przedmiotami danego studenta
    * 
-   * @param indexNo
+   * @param userId
    * @return
    */
-  public Grades getStudentSubjectList(Long indexNo) {
+  public Grades getStudentSubjectList(Long userId) {
     Grades grades = new Grades();
     DictionaryElement dictionaryElement = new DictionaryElement();
-    List<SubjectBlockDTO> subjectBlockDTOList  = subjectBlockDAO.findByIndexNo(indexNo);
+    List<SubjectBlockDTO> subjectBlockDTOList  = subjectBlockDAO.findByUserId(userId);
     Dictionary dictionary = dictionaryService.getDictionaries();
     
     for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
