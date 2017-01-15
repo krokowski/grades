@@ -1,6 +1,7 @@
 package com.grades.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,6 +43,10 @@ public class UserService {
 	@Transactional
 	public Long addUser(User user) {
 		UserDTO userDTO = new UserDTO(user);
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		userDTO.setPassword(passwordEncoder.encode(user.getPassword()));
+		
 		userDTO = userDAO.save(userDTO);
 		return userDTO.getUserId();
 	}
