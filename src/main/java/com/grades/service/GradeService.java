@@ -33,8 +33,8 @@ public class GradeService {
 	 * @param userId
 	 * @return
 	 */
-	public Grades getStudentSubjectList(Long userId) {
-		Grades grades = new Grades();
+	public List<DictionaryElement> getStudentSubjectList(Long userId) {
+		List<DictionaryElement> studentSubjectList = new ArrayList<DictionaryElement>();
 		DictionaryElement dictionaryElement = new DictionaryElement();
 		List<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByUserId(userId);
 		Dictionary dictionary = dictionaryService.getDictionaries();
@@ -42,10 +42,10 @@ public class GradeService {
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
 			dictionaryElement.setId(subjectBlockDTO.getSubjectBlockId());
 			dictionaryElement.setName(dictionaryService.generateDescription(dictionary, subjectBlockDTO));
-			grades.getStudentSubjectList().add(dictionaryElement);
+			studentSubjectList.add(dictionaryElement);
 		}
 
-		return grades;
+		return studentSubjectList;
 	}
 
 	/**

@@ -24,7 +24,7 @@ public class GradeController {
 	@GetMapping(path = "/grades")
 	public String getGradesList(Model model) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		model.addAttribute("grades", gradeService.getStudentSubjectList(customUserDetails.getUserId()));
+		model.addAttribute("studentSubjectList", gradeService.getStudentSubjectList(customUserDetails.getUserId()));
 		return "";
 	}
 	
