@@ -3,8 +3,10 @@ package com.grades.domain;
 import com.grades.dto.UserDTO;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class User {
 	
 	private Long userId;
