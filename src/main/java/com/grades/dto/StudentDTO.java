@@ -17,7 +17,6 @@ import javax.persistence.*;
 public class StudentDTO {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "index_no")
     private Long indexNo;
 
