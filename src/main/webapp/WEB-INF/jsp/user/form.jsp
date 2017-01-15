@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>user/form</title>
+		<title>Informacje o ocenach</title>
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -21,10 +21,10 @@
 	</head>
 	<body>
 		<div class="container">
-			<form action="">
+			<form:form action="add" modelAttribute="user" method="post">
 				<div class="form-group">
 					<label for="email">Adres email</label>
-				    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Podaj adres email">
+				    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Podaj adres email">
 				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 				</div>
 				<div class="form-group">
@@ -35,9 +35,12 @@
 				<div class="form-group">
 					<label for="role">Rola</label>
 					<select class="form-control" id="role" name="role">
-						<c:forEach items="${roles}" var="role">
+						<!-- <c:forEach items="${roles}" var="role">
 							<option value="${role.name}"></option>
-						</c:forEach>
+						</c:forEach> -->
+						<option value="ROLE_ADMIN">Administrator</option>
+						<option value="ROLE_WORKER">Pracownik</option>
+						<option value="ROLE_STUDENT">Student</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -52,7 +55,12 @@
 					<label for="pesel">Pesel</label>
 					<input type="text" id="pesel" name="pesel" placeholder="Podaj numer PESEL">
 				</div>
-			</form>
+				<div class="form-group">
+					<label for="indexNo">Nr Indeksu</label>
+					<input type="text" id="indexNo" name="indexNo" placeholder="Podaj numer indeksu">
+				</div>
+				<button type="submit" class="btn btn-primary">Dodaj</button>
+			</form:form>
 		</div>
 	</body>
 </html>
