@@ -26,7 +26,7 @@
 			    	<label for="subject">Wybierz przedmiot:</label>
 			    	<select class="form-control" id="subject" name="subject">
 				      	<c:forEach items="${subjectDictionary}" var="subject">
-				      		<option value="${subject.value}"></option>
+				      		<option value="${subject.value}">${subject.value}</option>
 				      	</c:forEach>
 			    	</select>
 			 	</div>
@@ -34,7 +34,7 @@
 			    	<label for="subjectForm">Wybierz formę zajęć:</label>
 			    	<select class="form-control" id="subjectForm" name="subjectForm">
 				      	<c:forEach items="${subjectFormDictionary}" var="subjectForm">
-				      		<option value="${subjectForm.value}"></option>
+				      		<option value="${subjectForm.value}">{subjectForm.value}</option>
 				      	</c:forEach>
 			    	</select>
 			 	</div>
@@ -42,7 +42,7 @@
 			    	<label for="group">Wybierz grupę:</label>
 			    	<select class="form-control" id="group" name="group">
 				      	<c:forEach items="${groupDictionary}" var="group">
-				      		<option value="${group.value}"></option>
+				      		<option value="${group.value}">${group.value}</option>
 				      	</c:forEach>
 			    	</select>
 			 	</div>

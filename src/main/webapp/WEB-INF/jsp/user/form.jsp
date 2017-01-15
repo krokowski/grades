@@ -38,7 +38,6 @@
 						<!-- <c:forEach items="${roles}" var="role">
 							<option value="${role.name}"></option>
 						</c:forEach> -->
-						<option value="ROLE_ADMIN">Administrator</option>
 						<option value="ROLE_WORKER">Pracownik</option>
 						<option value="ROLE_STUDENT">Student</option>
 					</select>
@@ -55,7 +54,7 @@
 					<label for="pesel">Pesel</label>
 					<input type="text" id="pesel" name="pesel" placeholder="Podaj numer PESEL">
 				</div>
-				<div class="form-group">
+				<div class="form-group" id="indexNoDiv" style="display: none;">
 					<label for="indexNo">Nr Indeksu</label>
 					<input type="text" id="indexNo" name="indexNo" placeholder="Podaj numer indeksu">
 				</div>
@@ -63,4 +62,16 @@
 			</form:form>
 		</div>
 	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#role').on('change', function() {
+		      	if ( this.value == 'ROLE_STUDENT') {
+		        		$("#indexNoDiv").show();
+		      	}
+		      	else {
+		        		$("#indexNoDiv").hide();
+		      	}
+		    });
+		});
+	</script>
 </html>

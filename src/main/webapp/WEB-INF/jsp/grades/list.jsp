@@ -1,0 +1,1 @@
+lista ocen dla studenta
