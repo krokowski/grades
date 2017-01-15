@@ -12,7 +12,7 @@ import com.grades.dto.SubjectBlockDTO;
 public interface SubjectBlockDAO extends CrudRepository<SubjectBlockDTO, Long> {
 
 	@Query("select sb.subjectBlockId, sb.subjectId, sb.subjectFormId, sb.groupId, sb.workerId from SubjectBlockDTO sb, "
-	    + "StudentSubjectDTO ss, StudentDTO s where ss.subjectBlockId = sb.subjectBlockId and s.indexNo=ss.IndexNo and s.userId <> ?1")
+	    + "StudentSubjectDTO ss, StudentDTO s where ss.subjectBlockId = sb.subjectBlockId and s.indexNo=ss.indexNo and s.userId <> ?1")
 	Iterable<SubjectBlockDTO> findAllNonSelectedForStudent(Long userId);
 	
 	@Query("select sb.subjectBlockId, sb.subjectId, sb.subjectFormId, sb.groupId, sb.workerId from SubjectBlockDTO sb, "
@@ -20,7 +20,7 @@ public interface SubjectBlockDAO extends CrudRepository<SubjectBlockDTO, Long> {
 	SubjectBlockDTO findByStudentSubjectId(Long studentSubjectId);
 	
 	@Query("select sb.subjectBlockId, sb.subjectId, sb.subjectFormId, sb.groupId, sb.workerId from SubjectBlockDTO sb, "
-      + "StudentSubjectDTO ss, StudentDTO s where ss.subjectBlockId = sb.subjectBlockId and s.indexNo=ss.IndexNo and s.userId = ?1")
+      + "StudentSubjectDTO ss, StudentDTO s where ss.subjectBlockId = sb.subjectBlockId and s.indexNo=ss.indexNo and s.userId = ?1")
 	List<SubjectBlockDTO> findByUserId(Long userId);
 	
 }
