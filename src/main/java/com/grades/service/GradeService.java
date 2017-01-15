@@ -1,5 +1,6 @@
 package com.grades.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,52 +17,53 @@ import com.grades.dto.SubjectBlockDTO;
 
 @Service
 public class GradeService {
-  
-  @Autowired
-  private GradeDAO gradeDAO;
-  
-  @Autowired
-  private SubjectBlockDAO subjectBlockDAO;
-  
-  @Autowired
-  private DictionaryService dictionaryService;
-  
-  /**
-   * Metoda uzywana do wygenerowania slownika z przedmiotami danego studenta
-   * 
-   * @param userId
-   * @return
-   */
-  public Grades getStudentSubjectList(Long userId) {
-    Grades grades = new Grades();
-    DictionaryElement dictionaryElement = new DictionaryElement();
-    List<SubjectBlockDTO> subjectBlockDTOList  = subjectBlockDAO.findByUserId(userId);
-    Dictionary dictionary = dictionaryService.getDictionaries();
-    
-    for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
-      dictionaryElement.setId(subjectBlockDTO.getSubjectBlockId());
-      dictionaryElement.setName(dictionaryService.generateDescription(dictionary, subjectBlockDTO));
-      grades.getStudentSubjectList().add(dictionaryElement);
-    }
-    
-    return grades;
-  }
-  
-  /**
-   * Wyszukuje wszystkie oceny danego studenta, dla wybranego przedmiotu
-   * 
-   * @param grades
-   * @param indexNo
-   * @return
-   */
-  public Grades getStudentGrades(Grades grades, Long indexNo) {
-    List<GradeDTO> gradeDTOList = gradeDAO.findByIndexNoAndSubjectBlockId(indexNo, grades.getSubjectBlockId());
-    
-    for (GradeDTO gradeDTO : gradeDTOList) {
-      grades.getGradeContextList().add(new GradeContext(gradeDTO));
-    }
-    
-    return grades;
-  }
+
+	@Autowired
+	private GradeDAO gradeDAO;
+
+	@Autowired
+	private SubjectBlockDAO subjectBlockDAO;
+
+	@Autowired
+	private DictionaryService dictionaryService;
+
+	/**
+	 * Metoda uzywana do wygenerowania slownika z przedmiotami danego studenta
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public Grades getStudentSubjectList(Long userId) {
+		Grades grades = new Grades();
+		DictionaryElement dictionaryElement = new DictionaryElement();
+		List<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByUserId(userId);
+		Dictionary dictionary = dictionaryService.getDictionaries();
+
+		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
+			dictionaryElement.setId(subjectBlockDTO.getSubjectBlockId());
+			dictionaryElement.setName(dictionaryService.generateDescription(dictionary, subjectBlockDTO));
+			grades.getStudentSubjectList().add(dictionaryElement);
+		}
+
+		return grades;
+	}
+
+	/**
+	 * Wyszukuje wszystkie oceny danego studenta, dla wybranego przedmiotu
+	 * 
+	 * @param grades
+	 * @param userId
+	 * @return
+	 */
+	public List<GradeContext> getStudentGrades(Long userId, Grades grades) {
+		List<GradeContext> gradeContextList = new ArrayList<GradeContext>();
+		List<GradeDTO> gradeDTOList = gradeDAO.findByUserIdAndSubjectBlockId(userId, grades.getSubjectBlockId());
+
+		for (GradeDTO gradeDTO : gradeDTOList) {
+			gradeContextList.add(new GradeContext(gradeDTO));
+		}
+
+		return gradeContextList;
+	}
 
 }
