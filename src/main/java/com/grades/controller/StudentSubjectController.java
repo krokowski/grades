@@ -34,12 +34,14 @@ public class StudentSubjectController {
 	@GetMapping
 	public String getStudentSubjectList(Model model) {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		model.addAttribute("subjectBlockList", subjectBlockService.getAllNonSelectedSubjectBlocks(user.getIndexNo()));
+		model.addAttribute("subjectBlockList", subjectBlockService.getAllSelectedSubjectBlocks(user.getIndexNo()));
 		return "/studentSubject/list";
 	}
 
 	@GetMapping(path = "/add")
-	public String getStudentSubjectAddForm() {
+	public String getStudentSubjectAddForm(Model model) {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("subjectBlockList", subjectBlockService.getAllNonSelectedSubjectBlocks(user.getIndexNo()));
 		return "/studentSubject/form";
 	}
 
