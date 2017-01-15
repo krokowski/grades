@@ -23,7 +23,7 @@ public class StudentSubjectDTO {
     @Column(name = "student_subject_id")
     private Long studentSubjectId;
 
-    @Column(name = "student_block_id")
+    @Column(name = "subject_block_id")
     private Long subjectBlockId;
 
     @Column(name = "index_no")

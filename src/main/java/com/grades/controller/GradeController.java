@@ -7,9 +7,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.grades.domain.GradeContext;
 import com.grades.domain.Grades;
 import com.grades.security.CustomUserDetails;
@@ -25,10 +27,11 @@ public class GradeController {
 	public String getGradesList(Model model) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("studentSubjectList", gradeService.getStudentSubjectList(customUserDetails.getUserId()));
-		return "";
+		return "grades/list";
 	}
 	
-	@RequestMapping(path = "/ajax/get/grades")
+	@JsonView
+	@PostMapping(path = "/ajax/grades")
 	public List<GradeContext> getGrades(@RequestBody Grades grades) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return gradeService.getStudentGrades(customUserDetails.getUserId(), grades);

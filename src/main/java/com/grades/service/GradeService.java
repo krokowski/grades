@@ -36,7 +36,7 @@ public class GradeService {
 	public List<DictionaryElement> getStudentSubjectList(Long userId) {
 		List<DictionaryElement> studentSubjectList = new ArrayList<DictionaryElement>();
 		DictionaryElement dictionaryElement = new DictionaryElement();
-		List<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByUserId(userId);
+		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByUserId(userId);
 		Dictionary dictionary = dictionaryService.getDictionaries();
 
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
