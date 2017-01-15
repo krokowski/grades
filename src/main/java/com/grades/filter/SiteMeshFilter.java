@@ -10,7 +10,7 @@ public class SiteMeshFilter extends ConfigurableSiteMeshFilter {
 
 	@Override
 	protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
-		builder.addDecoratorPath("/*", "/WEB-INF/decorators/decoratorMain.jsp");
+		builder.addDecoratorPath("/**", "/WEB-INF/decorators/decoratorMain.jsp");
 	}
 	
 	/*@Override
