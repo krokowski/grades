@@ -47,16 +47,9 @@ public class SubjectBlockService {
 	 * @param userId
 	 * @return
 	 */
-	public List<SubjectBlock> getAllSelectedSubjectBlocks(Long userId) {
-		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
-		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByUserId(userId);
-		Dictionary dictionary = dictionaryService.getDictionaries();
-
-		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
-			SubjectBlock subjectBlock = new SubjectBlock(subjectBlockDTO);
-			subjectBlock.setDescription(dictionaryService.generateDescription(dictionary, subjectBlockDTO));
-			subjectBlockList.add(subjectBlock);
-		}
+	public List<SubjectBlock> getAllSelectedByStudentSubjectBlocks(Long userId) {
+		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllSelectedForStudent(userId);
+		List<SubjectBlock> subjectBlockList = getSubjectBlockListBySubjectBlockDTOList(subjectBlockDTOList);
 
 		return subjectBlockList;
 	}
@@ -67,9 +60,22 @@ public class SubjectBlockService {
 	 * @param userId
 	 * @return
 	 */
-	public List<SubjectBlock> getAllNonSelectedSubjectBlocks(Long userId) {
-		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
+	public List<SubjectBlock> getAllNonSelectedByStudentSubjectBlocks(Long userId) {
 		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllNonSelectedForStudent(userId);
+		List<SubjectBlock> subjectBlockList = getSubjectBlockListBySubjectBlockDTOList(subjectBlockDTOList);
+
+		return subjectBlockList;
+	}
+	
+	public List<SubjectBlock> getAllCreatedByWorkerSubjectBlocks(Long userId) {
+		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findCreatedByWorker(userId);
+		List<SubjectBlock> subjectBlockList = getSubjectBlockListBySubjectBlockDTOList(subjectBlockDTOList);
+
+		return subjectBlockList;
+	}
+	
+	private List<SubjectBlock> getSubjectBlockListBySubjectBlockDTOList(Iterable<SubjectBlockDTO> subjectBlockDTOList) {
+		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
 		Dictionary dictionary = dictionaryService.getDictionaries();
 
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
@@ -79,6 +85,7 @@ public class SubjectBlockService {
 		}
 
 		return subjectBlockList;
+		
 	}
 
 }

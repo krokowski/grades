@@ -11,12 +11,13 @@ import com.grades.dto.GradeDTO;
 @Repository
 public interface GradeDAO extends CrudRepository<GradeDTO, Long> {
   
-  @Query("select g.grade, g.date, g.description from GradeDTO g, StudentSubjectDTO ss where g.studentSubjectId = ss.studentSubjectId "
-      + "and ss.indexNo = ?1")
+  @Query("select new com.grades.dto.GradeDTO(g.gradeId, g.grade, g.date, g.description, g.studentSubjectId) from GradeDTO g, "
+  		+ "StudentSubjectDTO ss where g.studentSubjectId = ss.studentSubjectId and ss.indexNo = ?1")
   List<GradeDTO> findAllGradesForStudent(Long indexNo);
   
-  @Query("select g.grade, g.date, g.description from GradeDTO g, StudentSubjectDTO ss, StudentDTO s where g.studentSubjectId = ss.studentSubjectId "
-      + "and s.indexNo=ss.indexNo and s.userId = ?1 and ss.subjectBlockId = ?2")
+  @Query("select new com.grades.dto.GradeDTO(g.gradeId, g.grade, g.date, g.description, g.studentSubjectId) from GradeDTO g, "
+  		+ "StudentSubjectDTO ss, StudentDTO s where g.studentSubjectId = ss.studentSubjectId and s.indexNo=ss.indexNo and s.userId = ?1 "
+  		+ "and ss.subjectBlockId = ?2")
   List<GradeDTO> findByUserIdAndSubjectBlockId(Long userId, Long subjectBlockId);
 
 }

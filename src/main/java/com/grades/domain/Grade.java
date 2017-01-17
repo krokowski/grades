@@ -14,7 +14,9 @@ public class Grade {
   private Date date;
 
   private String description;
+  
+  private Long subjectBlockId;
 
-  private Long studentSubjectId;
+  private Long indexNo;
 
 }

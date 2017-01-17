@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import com.grades.domain.Grade;
+
 import java.util.Date;
 
 /**
@@ -30,5 +33,12 @@ public class GradeDTO {
 
     @Column(name = "student_subject_id")
     private Long studentSubjectId;
+    
+    public GradeDTO(Grade grade) {
+    	this.gradeId = grade.getGradeId();
+    	this.grade = grade.getGrade();
+    	this.date = grade.getDate();
+    	this.description = grade.getDescription();
+    }
 
 }

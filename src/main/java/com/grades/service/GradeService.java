@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grades.dao.GradeDAO;
+import com.grades.dao.StudentSubjectDAO;
 import com.grades.dao.SubjectBlockDAO;
 import com.grades.domain.Dictionary;
 import com.grades.domain.DictionaryElement;
+import com.grades.domain.Grade;
 import com.grades.domain.GradeContext;
 import com.grades.domain.Grades;
 import com.grades.dto.GradeDTO;
@@ -26,6 +28,9 @@ public class GradeService {
 
 	@Autowired
 	private DictionaryService dictionaryService;
+	
+	@Autowired
+	private StudentSubjectDAO studentSubjectDAO;
 
 	/**
 	 * Metoda uzywana do wygenerowania slownika z przedmiotami danego studenta
@@ -36,7 +41,7 @@ public class GradeService {
 	public List<DictionaryElement> getStudentSubjectList(Long userId) {
 		List<DictionaryElement> studentSubjectList = new ArrayList<DictionaryElement>();
 		DictionaryElement dictionaryElement = new DictionaryElement();
-		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findByUserId(userId);
+		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAllSelectedForStudent(userId);
 		Dictionary dictionary = dictionaryService.getDictionaries();
 
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
@@ -64,6 +69,12 @@ public class GradeService {
 		}
 
 		return gradeContextList;
+	}
+	
+	public void addGrade(Grade grade) {
+		GradeDTO gradeDTO = new GradeDTO(grade);
+		gradeDTO.setStudentSubjectId(studentSubjectDAO.findByIndexNoAndSubjectBlockId(grade.getIndexNo(), grade.getSubjectBlockId()));
+		gradeDAO.save(gradeDTO);
 	}
 
 }
