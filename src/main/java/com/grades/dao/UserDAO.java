@@ -1,5 +1,6 @@
 package com.grades.dao;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,8 @@ public interface UserDAO extends CrudRepository<UserDTO, Long> {
     UserDTO findByEmail(String email);
     
     UserDTO findByUserId(Long userId);
+    
+    @Query("select u from UserDTO u, StudentDTO s where s.indexNo=?1")
+    UserDTO findByIndexNo(Long indexNo);
 
 }

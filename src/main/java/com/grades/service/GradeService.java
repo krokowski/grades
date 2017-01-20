@@ -14,6 +14,7 @@ import com.grades.domain.DictionaryElement;
 import com.grades.domain.Grade;
 import com.grades.domain.GradeContext;
 import com.grades.domain.Grades;
+import com.grades.domain.Student;
 import com.grades.dto.GradeDTO;
 import com.grades.dto.SubjectBlockDTO;
 
@@ -31,6 +32,9 @@ public class GradeService {
 	
 	@Autowired
 	private StudentSubjectDAO studentSubjectDAO;
+	
+	@Autowired
+	private UserService userService;
 
 	/**
 	 * Metoda uzywana do wygenerowania slownika z przedmiotami danego studenta
@@ -75,6 +79,17 @@ public class GradeService {
 		GradeDTO gradeDTO = new GradeDTO(grade);
 		gradeDTO.setStudentSubjectId(studentSubjectDAO.findByIndexNoAndSubjectBlockId(grade.getIndexNo(), grade.getSubjectBlockId()));
 		gradeDAO.save(gradeDTO);
+	}
+	
+	public List<Student> getStudents(Long subjectBlockId) {
+		List<Student> studentList = new ArrayList<Student>();
+		List<Long> indexNoList = studentSubjectDAO.findIndexNoBySubjectBlockId(subjectBlockId);
+		
+		for (Long indexNo : indexNoList) {
+			studentList.add(new Student(indexNo, userService.getStudentDescription(indexNo)));
+		}
+		
+		return studentList;
 	}
 
 }

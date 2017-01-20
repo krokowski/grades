@@ -8,11 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.grades.dao.StudentDAO;
 import com.grades.dao.UserDAO;
 import com.grades.dao.WorkerDAO;
+import com.grades.domain.User;
 import com.grades.domain.UserRoleType;
 import com.grades.dto.StudentDTO;
 import com.grades.dto.UserDTO;
 import com.grades.dto.WorkerDTO;
-import com.grades.domain.User;
 
 /**
  * @author Wojciech.Krokowski
@@ -73,6 +73,17 @@ public class UserService {
 		result.append(userDTO.getLastName());
 
 		return result.toString();
+	}
+	
+	public String getStudentDescription(Long indexNo) {
+		UserDTO userDTO = userDAO.findByIndexNo(indexNo);
+		StringBuilder sb = new StringBuilder();
+		sb.append(userDTO.getFirstName());
+		sb.append(" ");
+		sb.append(userDTO.getLastName());
+		sb.append(" ");
+		sb.append(indexNo);
+		return sb.toString();
 	}
 
 }

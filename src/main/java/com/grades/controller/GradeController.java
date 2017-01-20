@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.grades.domain.Grade;
 import com.grades.domain.GradeContext;
 import com.grades.domain.Grades;
+import com.grades.domain.Student;
 import com.grades.security.CustomUserDetails;
 import com.grades.service.GradeService;
 import com.grades.service.SubjectBlockService;
@@ -58,6 +59,11 @@ public class GradeController {
 	public String addGrade(@ModelAttribute("grade") @Valid Grade grade, BindingResult result) {
 		gradeService.addGrade(grade);
 		return "";
+	}
+	
+	@PostMapping(path = "/ajax/grade/add")
+	public @ResponseBody List<Student> getStudents(@RequestBody Grade grade) {
+		return gradeService.getStudents(grade.getSubjectBlockId());
 	}
 
 }

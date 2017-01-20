@@ -1,5 +1,7 @@
 package com.grades.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -11,5 +13,7 @@ public interface StudentSubjectDAO extends CrudRepository<StudentSubjectDTO, Lon
 	
 	@Query("select studentSubjectId from StudentSubjectDTO where indexNo = ?1 and subjectBlockId = ?2")
 	Long findByIndexNoAndSubjectBlockId(Long indexNo, Long subjectBlockId);
+	
+	List<Long> findIndexNoBySubjectBlockId(Long subjectBlockId);
 
 }
