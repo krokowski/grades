@@ -1,6 +1,5 @@
 package com.grades.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,21 +34,21 @@ public class StudentSubjectController {
 	public String getStudentSubjectList(Model model) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("subjectBlockList", subjectBlockService.getAllSelectedByStudentSubjectBlocks(customUserDetails.getUserId()));
-		return "/studentSubject/list";
+		return "studentSubject/list";
 	}
 
 	@GetMapping(path = "/add")
 	public String getStudentSubjectAddForm(Model model) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("subjectBlockList", subjectBlockService.getAllNonSelectedByStudentSubjectBlocks(customUserDetails.getUserId()));
-		return "/studentSubject/form";
+		return "studentSubject/form";
 	}
 
 	@PostMapping(path = "/add")
 	public String createStudentSubject(@ModelAttribute("studentSubject") @Valid StudentSubject studentSubject,
 			BindingResult result) {
 		studentSubjectService.createStudentSubject(studentSubject);
-		return "/studentSubject/form";
+		return "studentSubject/form";
 	}
 
 }

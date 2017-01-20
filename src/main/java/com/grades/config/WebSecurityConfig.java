@@ -29,8 +29,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -48,8 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutSuccessUrl("/login?logout")
                 .and()
                 .exceptionHandling().accessDeniedPage("/403");
-                /*.and()
-                .csrf();*/
         http.csrf().disable();
 
     }

@@ -21,6 +21,14 @@ public class SubjectBlockService {
 	@Autowired
 	private DictionaryService dictionaryService;
 
+	public Boolean isUnique(SubjectBlock subjectBlock) {
+		if (subjectBlockDAO.countOccurencies(subjectBlock.getSubjectId(), subjectBlock.getSubjectFormId(), subjectBlock.getGroupId()) > 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	public List<SubjectBlock> getAllSubjectBlocks() {
 		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
 		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findAll();
@@ -66,14 +74,14 @@ public class SubjectBlockService {
 
 		return subjectBlockList;
 	}
-	
+
 	public List<SubjectBlock> getAllCreatedByWorkerSubjectBlocks(Long userId) {
 		Iterable<SubjectBlockDTO> subjectBlockDTOList = subjectBlockDAO.findCreatedByWorker(userId);
 		List<SubjectBlock> subjectBlockList = getSubjectBlockListBySubjectBlockDTOList(subjectBlockDTOList);
 
 		return subjectBlockList;
 	}
-	
+
 	private List<SubjectBlock> getSubjectBlockListBySubjectBlockDTOList(Iterable<SubjectBlockDTO> subjectBlockDTOList) {
 		List<SubjectBlock> subjectBlockList = new ArrayList<SubjectBlock>();
 		Dictionary dictionary = dictionaryService.getDictionaries();
@@ -85,7 +93,7 @@ public class SubjectBlockService {
 		}
 
 		return subjectBlockList;
-		
+
 	}
 
 }

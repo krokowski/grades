@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<spring:form action="add" modelAttribute="studentSubject" method="post">
+			<form:form action="add" modelAttribute="studentSubject" method="post">
 				<div class="form-group">
 			    	<label for="subject">Wybierz przedmiot:</label>
 			    	<select class="form-control" id="studentSubject" name="studentSubject">
@@ -31,7 +31,7 @@
 			    	</select>
 			 	</div>
 			 	<button type="submit" class="btn btn-primary">Zapisz</button>
-			</spring:form>
+			</form:form>
 		</div>
 	</body>
 </html>

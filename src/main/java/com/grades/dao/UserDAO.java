@@ -16,7 +16,7 @@ public interface UserDAO extends CrudRepository<UserDTO, Long> {
     
     UserDTO findByUserId(Long userId);
     
-    @Query("select u from UserDTO u, StudentDTO s where s.indexNo=?1")
+    @Query("select u from UserDTO u, StudentDTO s where u.userId=s.userId and s.indexNo=?1")
     UserDTO findByIndexNo(Long indexNo);
 
 }

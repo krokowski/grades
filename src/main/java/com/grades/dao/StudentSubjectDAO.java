@@ -14,6 +14,7 @@ public interface StudentSubjectDAO extends CrudRepository<StudentSubjectDTO, Lon
 	@Query("select studentSubjectId from StudentSubjectDTO where indexNo = ?1 and subjectBlockId = ?2")
 	Long findByIndexNoAndSubjectBlockId(Long indexNo, Long subjectBlockId);
 	
+	@Query("select indexNo from StudentSubjectDTO where subjectBlockId = ?1")
 	List<Long> findIndexNoBySubjectBlockId(Long subjectBlockId);
 
 }

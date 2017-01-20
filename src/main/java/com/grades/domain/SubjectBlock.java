@@ -2,9 +2,13 @@ package com.grades.domain;
 
 import com.grades.dto.SubjectBlockDTO;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SubjectBlock {
 	
     private Long subjectBlockId;

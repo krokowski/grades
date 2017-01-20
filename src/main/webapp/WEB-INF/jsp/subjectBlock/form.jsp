@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -21,33 +21,42 @@
 	</head>
 	<body>
 		<div class="container">
-			<spring:form action="add" modelAttribute="subjectBlock" method="post">
+			<form:form action="add" modelAttribute="subjectBlock" method="post">
 				<div class="form-group">
 			    	<label for="subject">Wybierz przedmiot:</label>
-			    	<select class="form-control" id="subject" name="subject">
+			    	<select class="form-control" id="subject" name="subjectId">
 				      	<c:forEach items="${subjectDictionary}" var="subject">
-				      		<option value="${subject.value}">${subject.value}</option>
+				      		<option value="${subject.subjectId}">${subject.name}</option>
 				      	</c:forEach>
 			    	</select>
 			 	</div>
 			 	<div class="form-group">
 			    	<label for="subjectForm">Wybierz formę zajęć:</label>
-			    	<select class="form-control" id="subjectForm" name="subjectForm">
+			    	<select class="form-control" id="subjectForm" name="subjectFormId">
 				      	<c:forEach items="${subjectFormDictionary}" var="subjectForm">
-				      		<option value="${subjectForm.value}">{subjectForm.value}</option>
+				      		<option value="${subjectForm.subjectFormId}">${subjectForm.name}</option>
 				      	</c:forEach>
 			    	</select>
 			 	</div>
 			 	<div class="form-group">
 			    	<label for="group">Wybierz grupę:</label>
-			    	<select class="form-control" id="group" name="group">
+			    	<select class="form-control" id="group" name="groupId">
 				      	<c:forEach items="${groupDictionary}" var="group">
-				      		<option value="${group.value}">${group.value}</option>
+				      		<option value="${group.groupId}">${group.name}</option>
 				      	</c:forEach>
 			    	</select>
 			 	</div>
 			 	<button type="submit" class="btn btn-primary">Zapisz</button>
-			</spring:form>
+			</form:form>
 		</div>
 	</body>
+	<script type="text/javascript">
+
+		jQuery(document).ready(function($) {
+			document.getElementById("subject").selectedIndex = -1;
+			document.getElementById("subjectForm").selectedIndex = -1;
+			document.getElementById("group").selectedIndex = -1;
+		});
+
+	</script>
 </html>

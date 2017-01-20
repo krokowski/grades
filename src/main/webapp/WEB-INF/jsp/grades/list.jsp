@@ -21,18 +21,15 @@
 	</head>
 	<body>
 		<div class="container">
-
-			<form:form id="search" modelAttribute="grades">
-				<div class="form-group">
-					<label for="role">Rola</label>
-						<select class="form-control" id="studentSubject" name="studentSubject">
-							<c:forEach items="${studentSubjectList}" var="studentSubject">
-								<option value="${studentSubject.id}">${studentSubject.name}</option>
-							</c:forEach>
-						</select>
-				</div>
-				<!-- <input type="hidden" name="${_csrf.token}" id="csrfToken" value="${_csrf.token}"/> -->
-			</form:form>
+			
+			<div class="form-group">
+				<label for="studentSubject">Wybierz zajęcia:</label>
+					<select class="form-control" id="studentSubject" name="studentSubject">
+						<c:forEach items="${studentSubjectList}" var="studentSubject">
+							<option value="${studentSubject.id}">${studentSubject.name}</option>
+						</c:forEach>
+					</select>
+			</div>
 
 			<table class="table" id="grades">
 				<thead>
@@ -52,22 +49,13 @@
 
 		jQuery(document).ready(function($) {
 
-			var data = "";
-
 			document.getElementById("studentSubject").selectedIndex = -1;
 
 			$("#studentSubject").on('change', function(event) {
-
-				// Disble the search button
-				enableSearchButton(false);
-
-				// Prevent the form from submitting via the browser.
+				searchEnabled(false);
 				event.preventDefault();
-
 				searchViaAjax();
-
 			});
-
 		});
 
 		function searchViaAjax() {
@@ -85,28 +73,23 @@
 				dataType : 'json',
 				timeout : 100000,
 				success : function(data) {
-					console.log("SUCCESS: ", data);
-
-					dane=data;
 
 					for (i=0; i<data.length; i++) {
 						trHTML += '<tr><td>' + data[i].description + '</td><td>' + data[i].grade + '</td><td>' + data[i].date + '</td></tr>';
 					}
-
 					$('#gradeTable').html(trHTML);
 				},
 				error : function(e) {
 					console.log("ERROR: ", e);
 				},
 				done : function(e) {
-					console.log("DONE");
-					enableSearchButton(true);
+					searchEnabled(true);
 				}
 			});
 		}
 
-		function enableSearchButton(flag) {
-			$("#search").prop("disabled", flag);
+		function searchEnabled(flag) {
+			$("#search").prop("enabled", flag);
 		}
 	</script>
 </html>
