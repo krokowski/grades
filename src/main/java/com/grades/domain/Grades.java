@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class Grades {
   
-  private Long subjectBlockId;
+  private Long studentSubjectId;
   
 }

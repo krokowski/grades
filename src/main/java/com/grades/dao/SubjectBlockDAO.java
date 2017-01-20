@@ -22,7 +22,7 @@ public interface SubjectBlockDAO extends CrudRepository<SubjectBlockDTO, Long> {
 	Iterable<SubjectBlockDTO> findAllSelectedForStudent(Long userId);
 
 	@Query("select new com.grades.dto.SubjectBlockDTO(sb.subjectBlockId, sb.subjectId, sb.subjectFormId, sb.groupId, sb.workerId) from SubjectBlockDTO sb, "
-			+ "WorkerDTO w where w.workerId = sw.workerId and w.userId = ?1")
+			+ "WorkerDTO w where w.workerId = sb.workerId and w.userId = ?1")
 	Iterable<SubjectBlockDTO> findCreatedByWorker(Long userId);
 
 }

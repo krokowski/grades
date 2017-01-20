@@ -22,7 +22,7 @@
 	<body>
 		<div class="container">
 
-			<form:form id="search">
+			<form:form id="search" modelAttribute="grades">
 				<div class="form-group">
 					<label for="role">Rola</label>
 						<select class="form-control" id="studentSubject" name="studentSubject">
@@ -31,6 +31,7 @@
 							</c:forEach>
 						</select>
 				</div>
+				<!-- <input type="hidden" name="${_csrf.token}" id="csrfToken" value="${_csrf.token}"/> -->
 			</form:form>
 
 			<table class="table" id="grades">
@@ -41,20 +42,7 @@
 						<th>Data</th>
 					</tr>
 				</thead>
-				<tbody>
-					<c:forEach items="${recordsList}" var="item" >
-						<tr>
-							<th>
-								<c:out value="${item.description}" />
-							</th>
-							<th>
-								<c:out value="${item.grade}" />
-							</th>
-							<th>
-								<c:out value="${item.date}" />
-							</th>
-						</tr>
-					</c:forEach>
+				<tbody id="gradeTable">
 				</tbody>
 			</table>
 		</div>
@@ -63,6 +51,8 @@
 	<script type="text/javascript">
 
 		jQuery(document).ready(function($) {
+
+			var data = "";
 
 			document.getElementById("studentSubject").selectedIndex = -1;
 
@@ -83,18 +73,27 @@
 		function searchViaAjax() {
 
 			var search = {}
-			search["studentSubject"] = $("#studentSubject").val();
+			search["studentSubjectId"] = $("#studentSubject").val();
+
+			var trHTML = "";
 
 			$.ajax({
 				type : "POST",
 				contentType : "application/json",
 				url : window.location.protocol + "//" + window.location.host + "/ajax/grades",
-				data : JSON.stringify(search),
+				data : JSON.stringify(search) ,
 				dataType : 'json',
 				timeout : 100000,
 				success : function(data) {
 					console.log("SUCCESS: ", data);
-					$('#grades').append(data);
+
+					dane=data;
+
+					for (i=0; i<data.length; i++) {
+						trHTML += '<tr><td>' + data[i].description + '</td><td>' + data[i].grade + '</td><td>' + data[i].date + '</td></tr>';
+					}
+
+					$('#gradeTable').html(trHTML);
 				},
 				error : function(e) {
 					console.log("ERROR: ", e);
@@ -104,7 +103,6 @@
 					enableSearchButton(true);
 				}
 			});
-
 		}
 
 		function enableSearchButton(flag) {

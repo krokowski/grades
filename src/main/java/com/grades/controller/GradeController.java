@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import com.grades.domain.Grade;
 import com.grades.domain.GradeContext;
 import com.grades.domain.Grades;
@@ -39,22 +39,12 @@ public class GradeController {
 		return "grades/list";
 	}
 
-	@JsonView
 	@PostMapping(path = "/ajax/grades")
-	public List<GradeContext> getGrades(@RequestBody Grades grades) {
+	public @ResponseBody List<GradeContext> getGrades(@RequestBody Grades grades) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication()
 				.getPrincipal();
 		return gradeService.getStudentGrades(customUserDetails.getUserId(), grades);
 	}
-
-	/*
-	 * @PostMapping(path = "/grades") public String
-	 * getGrades(@ModelAttribute("user") @Valid Grades grades, Model model) {
-	 * CustomUserDetails customUserDetails = (CustomUserDetails)
-	 * SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	 * model.addAttribute("grades", gradeService.getStudentGrades(grades,
-	 * customUserDetails.getIndexNo())); return ""; }
-	 */
 
 	@GetMapping(path = "/grade/add")
 	public String getGradeAddForm(Model model) {

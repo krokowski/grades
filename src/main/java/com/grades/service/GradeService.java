@@ -54,7 +54,7 @@ public class GradeService {
 	}
 
 	/**
-	 * Wyszukuje wszystkie oceny danego studenta, dla wybranego przedmiotu
+	 * Wyszukuje wszystkie oceny danego studenta dla wybranego przedmiotu
 	 * 
 	 * @param grades
 	 * @param userId
@@ -62,7 +62,7 @@ public class GradeService {
 	 */
 	public List<GradeContext> getStudentGrades(Long userId, Grades grades) {
 		List<GradeContext> gradeContextList = new ArrayList<GradeContext>();
-		List<GradeDTO> gradeDTOList = gradeDAO.findByUserIdAndSubjectBlockId(userId, grades.getSubjectBlockId());
+		List<GradeDTO> gradeDTOList = gradeDAO.findByUserIdAndSubjectBlockId(userId, grades.getStudentSubjectId());
 
 		for (GradeDTO gradeDTO : gradeDTOList) {
 			gradeContextList.add(new GradeContext(gradeDTO));
