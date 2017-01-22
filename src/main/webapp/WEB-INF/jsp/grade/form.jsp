@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
@@ -31,7 +31,7 @@
 			<div class="sidebar" data-color="green">
 	
 				<div class="logo">					
-					Informacje o ocenach	
+					<span class="simple-text">Informacje o ocenach</span>
 				</div>
 	
 		    	<div class="sidebar-wrapper">
@@ -93,9 +93,7 @@
                               <p class="category">Dodaj ocenę</p>
                            </div>
 		                     <div class="card-content table-responsive">
-
-			                     <div class="container-fluid" id="container">
-			
+			                     <div class="container-fluid" id="container">			
 											<div class="form-group label-floating">
 												<label class="control-label" for="subjectBlock">Wybierz zajęcia:</label>
 												<select id="subjectBlock" name="subjectBlock" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8">
@@ -105,7 +103,7 @@
 												</select>
 											</div>			
 
-											<form:form action="grade/add" modelAttribute="grade" method="post" id="gradeForm">
+											<form:form action="add" modelAttribute="grade" method="post" id="gradeForm">
 												<div class="form-group">
 											    	<label class="control-label" for="subject">Wybierz studenta:</label>
 											    	<!-- <select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8"> -->
@@ -128,9 +126,6 @@
 											 	<button type="submit" class="btn btn-primary pull-right" form="gradeForm">Zapisz</button>
 											</form:form>
 										</div>
-
-
-
 									</div> 
 								</div>
 							</div>
@@ -139,9 +134,6 @@
 				</div>
 			</div>
 		</div>
-
-		
-
 	</body>
 
 	<script type="text/javascript">
@@ -176,12 +168,7 @@
 					$(".card-content.table-responsive").css('min-height', $(".card-content.table-responsive").height() + x + 10);
 					bigger = !bigger;
 				}
-			});
-
-
-			//
-
-			
+			});			
 		});
 
 		function searchViaAjax() {
@@ -199,8 +186,6 @@
 				dataType : 'json',
 				timeout : 100000,
 				success : function(data) {
-
-					console.log(data);
 
 					for (i=0; i<data.length; i++) {
 						trHTML += '<option value=' + data[i].indexNo + '>' + data[i].description + '</option>';

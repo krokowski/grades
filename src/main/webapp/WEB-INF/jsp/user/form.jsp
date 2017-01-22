@@ -31,7 +31,7 @@
 			<div class="sidebar" data-color="green">
 	
 				<div class="logo">					
-					Informacje o ocenach	
+					<span class="simple-text">Informacje o ocenach</span>
 				</div>
 	
 		    	<div class="sidebar-wrapper">

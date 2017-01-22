@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
@@ -31,8 +30,8 @@
 		<div class="wrapper">
 			<div class="sidebar" data-color="green">
 	
-				<div class="logo">					
-					Informacje o ocenach	
+				<div class="logo">
+					<span class="simple-text">Informacje o ocenach</span>						
 				</div>
 	
 		    	<div class="sidebar-wrapper">
@@ -94,7 +93,9 @@
 	                              <h4 class="title">Użytkownicy</h4>
 	                              <p class="category">Lista użytkowników systemu</p>
 										</div>
-                              <button class="btn">DODAJ</button>
+                              <a href="add">
+                              	<button class="btn">DODAJ</button>
+                              </a>
                            </div>
 		                     <div class="card-content table-responsive">
 			                     <table class="table">

@@ -58,7 +58,7 @@ public class GradeController {
 	@PostMapping(path = "/grade/add")
 	public String addGrade(@ModelAttribute("grade") @Valid Grade grade, BindingResult result) {
 		gradeService.addGrade(grade);
-		return "";
+		return "/grade/add";
 	}
 	
 	@PostMapping(path = "/ajax/grade/add")
