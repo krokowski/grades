@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -43,22 +44,31 @@
 	
 		    	<div class="sidebar-wrapper">
 					<ul class="nav">
-		                <li>
+						<li>
 		                    <a href="grades">
 		                        <i class="material-icons">grade</i>
-		                        <p>Oceny</p>
+		                        <p>Aktualności</p>
 		                    </a>
 		                </li>
+		                <sec:authorize access="hasRole('ROLE_STUDENT')">
+			                <li>
+			                    <a href="grades">
+			                        <i class="material-icons">grade</i>
+			                        <p>Oceny</p>
+			                    </a>
+			                </li>
+			                <li>
+		                    	<a href="student-subject">
+			                        <i class="material-icons">content_paste</i>
+			                        <p>Zajęcia</p>
+			                    </a>
+			                </li>
+			            </sec:authorize>
+			            <sec:authorize access="hasRole('ROLE_WORKER')">
 		                <li>
 		                    <a href="grade/add">
 		                        <i class="material-icons">grade</i>
 		                        <p>Dodaj ocene</p>
-		                    </a>
-		                </li>
-		                <li>
-		                    <a href="student-subject">
-		                        <i class="material-icons">content_paste</i>
-		                        <p>Zajęcia</p>
 		                    </a>
 		                </li>
 		                <li>
@@ -67,12 +77,15 @@
 		                        <p>Przedmioty</p>
 		                    </a>
 		                </li>
-		                <li class="active">
-		                    <a href="user">
-		                        <i class="material-icons">person</i>
-		                        <p>Użytkownicy</p>
-		                    </a>
-		                </li>
+		                </sec:authorize>
+		                <sec:authorize access="hasRole('ROLE_ADMIN')">
+			                <li class="active">
+			                    <a href="user">
+			                        <i class="material-icons">person</i>
+			                        <p>Użytkownicy</p>
+			                    </a>
+			                </li>
+			            </sec:authorize>
 		            </ul>
 		    	</div>
 			</div>
@@ -83,7 +96,7 @@
 		                <div class="row">
 		                    <div class="col-md-12">
 		                        <div class="card">
-		                            <div class="card-header" data-background-color="purple">
+		                            <div class="card-header" data-background-color="green">
 		                                <h4 class="title">Simple Table</h4>
 		                                <p class="category">Here is a subtitle for this table</p>
 		                            </div>
