@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+<sec:authentication var="principal" property="principal" />
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,6 +18,8 @@
 
 		<!-- Material Dashboard CSS -->
     	<link href="resources/css/material-dashboard.css" rel="stylesheet"/>
+    	
+    	<link href="../resources/css/app.css" rel="stylesheet"/>
 		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -93,6 +97,18 @@
 							</button>
 							<a class="navbar-brand">Aktualności</a>
 						</div>
+						<div class="collapse navbar-collapse">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a class="user-data"><sec:authentication property="principal.firstName" /> <sec:authentication property="principal.lastName" /></a></li>
+								<li style="margin-top: 5px;">
+									<form action="/logout" method="post">
+										<input type="submit" class="btn btn-success btn-logout" value="Wyloguj" />
+										
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+									</form>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</nav>
 			
@@ -106,7 +122,7 @@
                              			<p class="category">Program stypendialny</p>
                            			</div>
 		                    		 <div class="card-content table-responsive">
-			                     		Rozpoczęto proces przyjmowania wniosków na stypendium socjalne. Zapomoga dostępna jest dla wszystkich studentów....
+			                     		<span>Rozpoczęto proces przyjmowania wniosków na stypendium socjalne. Zapomoga dostępna jest dla wszystkich studentów....</span>
 									</div>
 								</div>
 							</div>
@@ -118,7 +134,20 @@
                              			<p class="category">System oceny prowadzących</p>
                            			</div>
 		                    		 <div class="card-content table-responsive">
-			                     		Zachęcamy do zapoznania się z ofertą ankiet uczelni i uczestnictwa w procesie oceny prowadzących.
+			                     		<span>Zachęcamy do zapoznania się z ofertą ankiet uczelni i uczestnictwa w procesie oceny prowadzących.</span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-12">
+		                  		<div class="card">
+                           			<div class="card-header" data-background-color="green">
+                              			<h4 class="title">Informacje o ocenach</h4>
+                             			<p class="category">Nowy system informacji o ocenach</p>
+                           			</div>
+		                    		 <div class="card-content table-responsive">
+			                     		<span>Dnia 28.01.2017r. Politechnika Rzeszowska wprowadziła nowy system informacji o ocenach studentów. 
+			                     		Gorąca zachęcamy studentów do korzystania z nowego systemu</span>
 									</div>
 								</div>
 							</div>
