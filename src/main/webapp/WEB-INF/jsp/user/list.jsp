@@ -30,86 +30,79 @@
 	<body>
 		<div class="wrapper">
 			<div class="sidebar" data-color="green">
-				<!--
-			        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 	
-			        Tip 2: you can also add an image using data-image tag
-			    -->
-	
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text">
-						Informacje o ocenach
-					</a>
+				<div class="logo">					
+					Informacje o ocenach	
 				</div>
 	
 		    	<div class="sidebar-wrapper">
 					<ul class="nav">
 						<li>
-		                    <a href="grades">
-		                        <i class="material-icons">grade</i>
-		                        <p>Aktualności</p>
-		                    </a>
-		                </li>
-		                <sec:authorize access="hasRole('ROLE_STUDENT')">
-			                <li>
-			                    <a href="grades">
-			                        <i class="material-icons">grade</i>
-			                        <p>Oceny</p>
-			                    </a>
-			                </li>
-			                <li>
-		                    	<a href="student-subject">
-			                        <i class="material-icons">content_paste</i>
-			                        <p>Zajęcia</p>
-			                    </a>
-			                </li>
-			            </sec:authorize>
-			            <sec:authorize access="hasRole('ROLE_WORKER')">
-		                <li>
-		                    <a href="grade/add">
-		                        <i class="material-icons">grade</i>
-		                        <p>Dodaj ocene</p>
-		                    </a>
-		                </li>
-		                <li>
-		                    <a href="subject-block">
-		                        <i class="material-icons">content_paste</i>
-		                        <p>Przedmioty</p>
-		                    </a>
-		                </li>
-		                </sec:authorize>
-		                <sec:authorize access="hasRole('ROLE_ADMIN')">
-			                <li class="active">
-			                    <a href="user">
-			                        <i class="material-icons">person</i>
-			                        <p>Użytkownicy</p>
-			                    </a>
-			                </li>
-			            </sec:authorize>
-		            </ul>
+		               <a href="grades">
+		                  <i class="material-icons">grade</i>
+		                  <p>Aktualności</p>
+		               </a>
+		            </li>
+		            <sec:authorize access="hasRole('ROLE_STUDENT')">
+			            <li>
+			               <a href="grades">
+			                  <i class="material-icons">grade</i>
+			                  <p>Oceny</p>
+			               </a>
+			            </li>
+			            <li>
+		                  <a href="student-subject">
+			                  <i class="material-icons">content_paste</i>
+			                  <p>Zajęcia</p>
+			               </a>
+			            </li>
+			         </sec:authorize>
+			         <sec:authorize access="hasRole('ROLE_WORKER')">
+		               <li>
+		                  <a href="grade/add">
+		                     <i class="material-icons">grade</i>
+		                     <p>Dodaj ocenę</p>
+		                  </a>
+		               </li>
+		               <li>
+		                  <a href="subject-block">
+		                     <i class="material-icons">content_paste</i>
+		                     <p>Przedmioty</p>
+		                  </a>
+		               </li>
+		            </sec:authorize>
+		            <sec:authorize access="hasRole('ROLE_ADMIN')">
+			            <li class="active">
+			               <a href="user">
+			                  <i class="material-icons">person</i>
+			                  <p>Użytkownicy</p>
+			               </a>
+			            </li>
+			         </sec:authorize>
+		         </ul>
 		    	</div>
 			</div>
 		
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid">
-		                <div class="row">
-		                    <div class="col-md-12">
-		                        <div class="card">
-		                            <div class="card-header" data-background-color="green">
-		                                <h4 class="title">Simple Table</h4>
-		                                <p class="category">Here is a subtitle for this table</p>
-		                            </div>
-		                            <div class="card-content table-responsive">
-			                            <table class="table">
+		            <div class="row">
+		               <div class="col-md-12">
+		                  <div class="card">
+                           <div class="card-header" data-background-color="green">
+                              <h4 class="title">Użytkownicy</h4>
+                              <p class="category">Lista użytkowników systemu</p>
+                           </div>
+		                     <div class="card-content table-responsive">
+			                     <table class="table">
 											<thead>
 												<tr>
 													<th>ID</th>
-													<th>email</th>
-													<th>rola</th>
-													<th>imie</th>
-													<th>nazwisko</th>
-													<th>pesel</th>
+													<th>Email</th>
+													<th>Rola</th>
+													<th>Imię</th>
+													<th>Nazwisko</th>
+													<th>PESEL</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -122,7 +115,17 @@
 															<c:out value="${user.email}" />
 														</th>
 														<th>
-															<c:out value="${user.role}" />
+															<c:choose>
+																<c:when test="${user.role == 'ROLE_ADMIN'}">
+																	Administrator
+																</c:when>
+																<c:when test="${user.role == 'ROLE_WORKER'}">
+																	Pracownik
+																</c:when>
+																<c:otherwise>
+																	Student
+																</c:otherwise>
+															</c:choose>
 														</th>
 														<th>
 															<c:out value="${user.firstName}" />
