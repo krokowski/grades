@@ -17,6 +17,15 @@ body.login-body:after {
     height: 100%;
 }
 
+.inline-header {
+	display: inline-block;
+}
+
+.card-header .btn {
+	margin-top: 7px;
+	float: right;
+}
+
 .logo{
   text-transform: uppercase;
   padding: 5px 0px;
