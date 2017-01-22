@@ -3,25 +3,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="resources/css/app.css"rel="stylesheet"
-	type="text/css"></link>
-<title>Spring Security Example - ProgrammingFree</title>
+	<link href="../resources/css/app.css"rel="stylesheet" type="text/css"></link>
+	
+	<!-- jQuery 3.1.1 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!--  Material Dashboard CSS    -->
+    <link href="../resources/css/material-dashboard.css" rel="stylesheet"/>
+		
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+	
+<title>Informacje o ocenach</title>
 </head>
-<body class="security-app">
-	<div class="details">
-	<h2>Spring Security - JDBC Authentication</h2>
-		<a href="http://www.programming-free.com/2016/01/spring-security-spring-data-jpa.html" class="button green small">Tutorial</a> 
-		<a href="https://github.com/priyadb/SpringSecurityJdbcApp/archive/master.zip"
-			class="button red small">Download</a>
-	</div>
-	<div class="lc-block">		
-		<div class="alert-danger">
-			<h3>You do not have permission to access this page!</h3>	
+<body class="login-body">
+
+	<div class="login-block col-md-6">
+			<div class="card">
+				<div class="card-content">
+	
+				<div class="alert-danger">
+					<h3>Brak uprawnień do przeglądania tej strony!</h3>	
+				</div>
+				<form action="/logout" method="post">
+					<input type="submit" class="button red big" value="Sign in as different user" /> <input
+								type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>		
+			</div>	
 		</div>
-		<form action="/logout" method="post">
-			<input type="submit" class="button red big" value="Sign in as different user" /> <input
-				type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		</form>		
-	</div>	
+	</div>
 </body>
+
+<script src="../resources/js/material.min.js" type="text/javascript"></script>
+<script src="../resources/js/material-dashboard.js"></script>
+
 </html>

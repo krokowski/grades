@@ -21,37 +21,39 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @ComponentScan(basePackageClasses = CustomUserDetailsService.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+	@Autowired
+	private UserDetailsService userDetailsService;
 
-    @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
-    }
+	@Autowired
+	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
+	}
 
-    @Override
+	@Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/hello").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/user*").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/subject-block*").access("hasRole('ROLE_WORKER')")
-                .antMatchers("/student-subject*").access("hasRole('ROLE_STUDENT')")
-                .antMatchers("/grades*").access("hasRole('ROLE_STUDENT')")
-                .antMatchers("/grade-add*").access("hasRole('ROLE_WORKER')")
-                .anyRequest().permitAll()
-                .and()
-                .formLogin().loginPage("/login")
-                .usernameParameter("username").passwordParameter("password")
-                .and()
-                .logout().logoutSuccessUrl("/login?logout")
-                .and()
-                .exceptionHandling().accessDeniedPage("/403");
+    	http
+    		.formLogin()
+	    		.loginPage("/login")
+	            .usernameParameter("email").passwordParameter("password")
+	            .and()
+	            .logout().logoutSuccessUrl("/login?logout")
+	            .and()
+	            .exceptionHandling().accessDeniedPage("/403")
+	            .and()
+	         .authorizeRequests()
+                .antMatchers("/home").authenticated()
+                .antMatchers("/user/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/subject-block/**").access("hasRole('ROLE_WORKER')")
+                .antMatchers("/student-subject/**").access("hasRole('ROLE_STUDENT')")
+                .antMatchers("/grades/**").access("hasRole('ROLE_STUDENT')")
+                .antMatchers("/grade/add/**").access("hasRole('ROLE_WORKER')")
+                .anyRequest().permitAll();
         http.csrf().disable();
 
     }
 
-    @Bean(name="passwordEncoder")
-    public PasswordEncoder passwordencoder(){
-        return new BCryptPasswordEncoder();
-    }
+	@Bean(name = "passwordEncoder")
+	public PasswordEncoder passwordencoder() {
+		return new BCryptPasswordEncoder();
+	}
 }
