@@ -6,17 +6,22 @@
 <html>
 	<head>
 		<title>Informacje o ocenach</title>
+		
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+		<!-- Material Dashboard CSS -->
+    	<link href="resources/css/material-dashboard.css" rel="stylesheet"/>
+		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<!-- Fonts and icons -->
+    	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 		
 	</head>
 	<body>
@@ -35,9 +40,6 @@
 				<div class="form-group">
 					<label for="role">Rola</label>
 					<select class="form-control" id="role" name="role">
-						<!-- <c:forEach items="${roles}" var="role">
-							<option value="${role.name}"></option>
-						</c:forEach> -->
 						<option value="ROLE_WORKER">Pracownik</option>
 						<option value="ROLE_STUDENT">Student</option>
 					</select>
@@ -64,14 +66,14 @@
 	</body>
 	<script type="text/javascript">
 		$(document).ready(function() {
-		    $('#role').on('change', function() {
-		      	if ( this.value == 'ROLE_STUDENT') {
-		        		$("#indexNoDiv").show();
-		      	}
-		      	else {
-		        		$("#indexNoDiv").hide();
-		      	}
-		    });
+		   $('#role').on('change', function() {
+		     	if ( this.value == 'ROLE_STUDENT') {
+		        	$("#indexNoDiv").show();
+		      }
+		      else {
+		        	$("#indexNoDiv").hide();
+		      }
+		   });
 		});
 	</script>
 </html>
