@@ -37,10 +37,10 @@
 						Informacje o ocenach	
 					</div>
 					<c:if test="${param.error ne null}">
-						<div class="alert-danger">Niepoprawny login lub hasło</div>
+						<div class="alert alert-danger">Niepoprawny login lub hasło</div>
 					</c:if>
 					<c:if test="${param.logout ne null}">
-						<div class="alert-normal">Zostałeś poprawnie wylogowany</div>
+						<div class="alert alert-success">Zostałeś poprawnie wylogowany</div>
 					</c:if>
 					<div class="form-group label-floating">
 							<label class="control-label">Email</label>
@@ -50,7 +50,7 @@
 							<label class="control-label">Hasło</label>
 							<input type="password" class="form-control" name="password" >
 					</div>
-					<div>
+					<div style="text-align:center;">
 						<input type="submit" value="Zaloguj się" class="btn btn-primary" />
 					</div>
 				</div>
@@ -59,9 +59,10 @@
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
 	</form>
+	
+	
 
 </body>
-
 <script src="resources/js/material.min.js" type="text/javascript"></script>
 <script src="resources/js/material-dashboard.js"></script>
 

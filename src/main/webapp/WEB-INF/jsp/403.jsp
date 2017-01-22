@@ -26,17 +26,23 @@
 <body class="login-body">
 
 	<div class="login-block col-md-6">
-			<div class="card">
-				<div class="card-content">
-	
-				<div class="alert-danger">
-					<h3>Brak uprawnień do przeglądania tej strony!</h3>	
+		<div class="card">		
+			<div class="card-content">
+				<div class="alert alert-danger">
+					UWAGA!<br/>Brak uprawnień do przeglądania tej strony!
 				</div>
-				<form action="/logout" method="post">
+				
+				<%-- <form action="/logout" method="post">
 					<input type="submit" class="button red big" value="Sign in as different user" /> <input
 								type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-				</form>		
-			</div>	
+				</form>	 --%>
+				
+				<form>
+					<div style="text-align:center;">
+						<input type="button" value="Powrót" onClick="history.go(-1);return true;" class="btn btn-primary">
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>

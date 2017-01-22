@@ -36,7 +36,7 @@
 		    	<div class="sidebar-wrapper">
 					<ul class="nav">
 						<li>
-		               <a href="grades">
+		               <a href="home">
 		                  <i class="material-icons">grade</i>
 		                  <p>Aktualności</p>
 		               </a>

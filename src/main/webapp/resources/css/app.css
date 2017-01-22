@@ -17,29 +17,6 @@ body.login-body:after {
     height: 100%;
 }
 
-.alert-danger {
-    padding: 15px;
-    font-size: 16px;
-    background-color: #f2dede;
-    border-color: #f2dede;
-    color: #f44336;
-    margin: 18px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-}
-.alert-normal{
-	padding: 15px;
-    font-size: 16px;
-    margin: 18px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    background-color: #d9edf7;
-    border-color: #d9edf7;
-    color: #2196f3;
-    
-    
-}
-
 .logo{
   text-transform: uppercase;
   padding: 5px 0px;
@@ -52,8 +29,14 @@ body.login-body:after {
 }
 
 @media (min-width: 992px){
+	body.login-body {
+		position: relative;
+	}
 	.login-block {
 	    margin: 0 auto;
 	    float: none !important;
+	}
+	.login-block .card {
+		margin: 17vh 0;
 	}
 }
