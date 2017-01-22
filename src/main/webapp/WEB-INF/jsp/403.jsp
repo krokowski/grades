@@ -28,7 +28,7 @@
 	<div class="login-block col-md-6">
 		<div class="card">		
 			<div class="card-content">
-				<div class="alert alert-danger">
+				<div class="alert alert-warning">
 					UWAGA!<br/>Brak uprawnień do przeglądania tej strony!
 				</div>
 				

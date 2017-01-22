@@ -29,7 +29,7 @@
 		<div class="wrapper">
 			<div class="sidebar" data-color="green">
 	
-				<div class="logo simple-text">	
+				<div class="logo">	
 					<a class="simple-text">Informacje o ocenach</a>				
 				</div>
 	

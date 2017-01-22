@@ -3432,7 +3432,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 footer {
-  padding: 15px 0;
+  padding: 0;
 }
 footer ul {
   margin-bottom: 0;
@@ -4752,7 +4752,6 @@ footer .btn {
     left: auto;
     z-index: 1032;
     visibility: visible;
-    background-color: #9A9A9A;
     overflow-y: visible;
     border-top: none;
     text-align: left;
@@ -4784,7 +4783,6 @@ footer .btn {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: #282828;
     display: block;
     content: "";
     z-index: 1;
