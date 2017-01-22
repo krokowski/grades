@@ -695,6 +695,7 @@ h2.title {
   will-change: box-shadow, transform;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .btn::-moz-focus-inner,
 .navbar .navbar-nav > li > a.btn::-moz-focus-inner {
   border: 0;
@@ -729,8 +730,10 @@ h2.title {
 .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle, .open >
 .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle:focus, .open >
 .navbar .navbar-nav > li > a.btn.btn-default.dropdown-toggle:hover {
-  background-color: #999999;
-  color: #FFFFFF;
+  /*background-color: #999999;
+  color: #FFFFFF;*/
+  background-color: #fff;
+  color: #43a047;
 }
 .btn:focus, .btn:active, .btn:hover, .btn.btn-default:focus, .btn.btn-default:active, .btn.btn-default:hover,
 .navbar .navbar-nav > li > a.btn:focus,

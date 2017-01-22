@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<title>Użytkownicy</title>
-		
+
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -15,7 +15,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 		<!-- Material Dashboard CSS -->
-    	<link href="resources/css/material-dashboard.css" rel="stylesheet"/>
+    	<link href="../resources/css/material-dashboard.css" rel="stylesheet"/>
+
+    	<link href="../resources/css/app.css" rel="stylesheet"/>
 		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -88,8 +90,11 @@
 		               <div class="col-md-12">
 		                  <div class="card">
                            <div class="card-header" data-background-color="green">
-                              <h4 class="title">Użytkownicy</h4>
-                              <p class="category">Lista użytkowników systemu</p>
+                              <div class="inline-header">
+	                              <h4 class="title">Użytkownicy</h4>
+	                              <p class="category">Lista użytkowników systemu</p>
+										</div>
+                              <button class="btn">DODAJ</button>
                            </div>
 		                     <div class="card-content table-responsive">
 			                     <table class="table">
@@ -148,7 +153,7 @@
 		</div>
 	</body>
 	
-	<script src="resources/js/material.min.js" type="text/javascript"></script>
-	<script src="resources/js/material-dashboard.js"></script>
+	<script src="../resources/js/material.min.js" type="text/javascript"></script>
+	<script src="../resources/js/material-dashboard.js"></script>
 	
 </html>

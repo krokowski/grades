@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Informacje o ocenach</title>
+		<title>Użytkownicy</title>
 
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -94,7 +94,7 @@
                            </div>
 		                     <div class="card-content table-responsive">
 			                     <div class="container-fluid">
-											<form:form action="add" modelAttribute="user" method="post">
+											<form:form action="add" modelAttribute="user" method="post" id="userForm">
 												<div class="form-group label-floating">
 													<label class="control-label" for="email">Adres email</label>
 												   <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
@@ -106,7 +106,7 @@
 												</div>
 												<div class="form-group label-floating">
 													<label class="control-label" for="role">Rola</label>
-													<select class="selectpicker" data-style="select-with-transition" title="Wybierz rolę" data-size="2">
+													<select id="role" name="role" class="selectpicker" data-style="select-with-transition" title="Wybierz rolę" data-size="2">
                                           <option value="ROLE_WORKER">Pracownik</option>
                         						<option value="ROLE_STUDENT">Student</option>
                                      </select>
@@ -127,7 +127,7 @@
 													<label class="control-label" for="indexNo">Nr Indeksu</label>
 													<input type="text" class="form-control" id="indexNo" name="indexNo">
 												</div>
-												<button type="submit" class="btn btn-primary pull-right">Dodaj</button>
+												<input type="submit" value="Dodaj" class="btn btn-primary pull-right"></input>
 											</form:form>
 										</div> 
 									</div> 
@@ -138,20 +138,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
 	</body>
 	
 	<script type="text/javascript">
@@ -166,7 +152,6 @@
 		   });
 		});
 	</script>
-
 	<script src="../resources/js/material.min.js" type="text/javascript"></script>
 	<script src="../resources/js/jquery.select-bootstrap.js" type="text/javascript"></script>
 	<script src="../resources/js/material-dashboard.js"></script>
