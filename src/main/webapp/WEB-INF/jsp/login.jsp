@@ -6,8 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="<c:url value="resources/css/app.css" />" rel="stylesheet"
-	type="text/css">
+		<title>Informacje o ocenach</title>
 	
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -17,6 +16,8 @@
 
 		<!--  Material Dashboard CSS    -->
     	<link href="resources/css/material-dashboard.css" rel="stylesheet"/>
+    	
+    	<link href="resources/css/app.css" rel="stylesheet" type="text/css">
 		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -24,7 +25,9 @@
 		<!--     Fonts and icons     -->
     	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-	<title>Informacje o ocenach</title>
+    	
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 </head>
 <body class="login-body">
 

@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<sec:authentication var="principal" property="principal" />
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,9 +15,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 		<!-- Material Dashboard CSS -->
-    	<link href="resources/css/material-dashboard.css" rel="stylesheet"/>
+    	<link href="../resources/css/material-dashboard.css" rel="stylesheet"/>
     	
-    	<link href="../resources/css/app.css" rel="stylesheet"/>
+    	<link href="../resources/css/app.css" rel="stylesheet" type="text/css">
 		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -27,6 +25,8 @@
 		<!-- Fonts and icons -->
     	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    	
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 	</head>
 	<body>
@@ -34,54 +34,54 @@
 			<div class="sidebar" data-color="green">
 	
 				<div class="logo">	
-					<a class="simple-text">Informacje o ocenach</a>				
+					<span class="simple-text">Informacje o ocenach</span>				
 				</div>
 	
 		    	<div class="sidebar-wrapper">
 					<ul class="nav">
 						<li class="active">
-		               <a href="home">
-		                  <i class="material-icons">dashboard</i>
-		                  <p>Aktualności</p>
-		               </a>
-		            </li>
-		            <sec:authorize access="hasRole('ROLE_STUDENT')">
-			            <li>
-			               <a href="grades">
-			                  <i class="material-icons">grade</i>
-			                  <p>Oceny</p>
+			               <a href="home">
+			                  <i class="material-icons">dashboard</i>
+			                  <p>Aktualności</p>
 			               </a>
 			            </li>
-			            <li>
-		                  <a href="student-subject">
-			                  <i class="material-icons">content_paste</i>
-			                  <p>Zajęcia</p>
-			               </a>
-			            </li>
-			         </sec:authorize>
-			         <sec:authorize access="hasRole('ROLE_WORKER')">
-		               <li>
-		                  <a href="grade/add">
-		                     <i class="material-icons">grade</i>
-		                     <p>Dodaj ocenę</p>
-		                  </a>
-		               </li>
-		               <li>
-		                  <a href="subject-block">
-		                     <i class="material-icons">content_paste</i>
-		                     <p>Przedmioty</p>
-		                  </a>
-		               </li>
-		            </sec:authorize>
-		            <sec:authorize access="hasRole('ROLE_ADMIN')">
-			            <li>
-			               <a href="user">
-			                  <i class="material-icons">person</i>
-			                  <p>Użytkownicy</p>
-			               </a>
-			            </li>
-			         </sec:authorize>
-		         </ul>
+			            <sec:authorize access="hasRole('ROLE_STUDENT')">
+				            <li>
+				               <a href="grades">
+				                  <i class="material-icons">grade</i>
+				                  <p>Oceny</p>
+				               </a>
+				            </li>
+				            <li>
+			                  <a href="student-subject">
+				                  <i class="material-icons">content_paste</i>
+				                  <p>Zajęcia</p>
+				               </a>
+				            </li>
+				         </sec:authorize>
+				         <sec:authorize access="hasRole('ROLE_WORKER')">
+			               <li>
+			                  <a href="grade/add">
+			                     <i class="material-icons">grade</i>
+			                     <p>Dodaj ocenę</p>
+			                  </a>
+			               </li>
+			               <li>
+			                  <a href="subject-block">
+			                     <i class="material-icons">content_paste</i>
+			                     <p>Przedmioty</p>
+			                  </a>
+			               </li>
+			            </sec:authorize>
+			            <sec:authorize access="hasRole('ROLE_ADMIN')">
+				            <li>
+				               <a href="user">
+				                  <i class="material-icons">person</i>
+				                  <p>Użytkownicy</p>
+				               </a>
+				            </li>
+				         </sec:authorize>
+			         </ul>
 		    	</div>
 			</div>
 		
