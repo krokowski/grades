@@ -162,4 +162,8 @@
 			</div>
 		</div>
 	</body>
+	
+	<script src="../resources/js/material.min.js" type="text/javascript"></script>
+	<script src="../resources/js/material-dashboard.js"></script>
+	
 </html>

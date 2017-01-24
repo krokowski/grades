@@ -121,7 +121,7 @@
                               			<h4 class="title">Pomoc materialna dla studentów</h4>
                              			<p class="category">Program stypendialny</p>
                            			</div>
-		                    		 <div class="card-content table-responsive">
+		                    		 <div class="card-content">
 			                     		<span>Rozpoczęto proces przyjmowania wniosków na stypendium socjalne. Zapomoga dostępna jest dla wszystkich studentów....</span>
 									</div>
 								</div>
@@ -133,7 +133,7 @@
                               			<h4 class="title">Ankiety</h4>
                              			<p class="category">System oceny prowadzących</p>
                            			</div>
-		                    		 <div class="card-content table-responsive">
+		                    		 <div class="card-content">
 			                     		<span>Zachęcamy do zapoznania się z ofertą ankiet uczelni i uczestnictwa w procesie oceny prowadzących.</span>
 									</div>
 								</div>
@@ -145,7 +145,7 @@
                               			<h4 class="title">Informacje o ocenach</h4>
                              			<p class="category">Nowy system informacji o ocenach</p>
                            			</div>
-		                    		 <div class="card-content table-responsive">
+		                    		 <div class="card-content">
 			                     		<span>Dnia 28.01.2017r. Politechnika Rzeszowska wprowadziła nowy system informacji o ocenach studentów. 
 			                     		Gorąca zachęcamy studentów do korzystania z nowego systemu</span>
 									</div>
