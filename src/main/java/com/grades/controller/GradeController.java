@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ import com.grades.domain.Student;
 import com.grades.security.CustomUserDetails;
 import com.grades.service.GradeService;
 import com.grades.service.SubjectBlockService;
+import com.grades.validator.GradeValidator;
 
 @Controller
 public class GradeController {
@@ -31,6 +33,11 @@ public class GradeController {
 	
 	@Autowired
 	private SubjectBlockService subjectBlockService;
+	
+	@Autowired
+	@Qualifier("gradeValidator")
+	private GradeValidator gradeValidator;
+	
 
 	@GetMapping(path = "/grades")
 	public String getGradesList(Model model) {

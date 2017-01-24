@@ -29,6 +29,7 @@ public class StudentSubjectController {
 	
 	@Autowired
 	private StudentSubjectService studentSubjectService;
+	
 
 	@GetMapping
 	public String getStudentSubjectList(Model model) {

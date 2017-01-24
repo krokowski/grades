@@ -3,6 +3,7 @@ package com.grades.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.grades.dao.UserDAO;
 import com.grades.domain.User;
 import com.grades.service.UserService;
+import com.grades.validator.UserValidator;
 
 /**
  * @author Wojciech.Krokowski
@@ -28,6 +30,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	@Qualifier("userValidator")
+	private UserValidator userValidator;
 
 	@GetMapping
 	public String getUserList(Model model) {
@@ -42,6 +48,7 @@ public class UserController {
 
 	@PostMapping(path = "/add")
 	public String create(@ModelAttribute("user") @Valid User user, BindingResult result) {
+		
 		userService.addUser(user);
 		return "redirect:/user";
 	}

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ import com.grades.domain.SubjectBlock;
 import com.grades.security.CustomUserDetails;
 import com.grades.service.DictionaryService;
 import com.grades.service.SubjectBlockService;
+import com.grades.validator.SubjectBlockValidator;
 
 /**
  * @author Wojciech.Krokowski
@@ -37,6 +39,11 @@ public class SubjectBlockController {
 
 	@Autowired
 	private WorkerDAO workerDAO;
+	
+	@Autowired
+	@Qualifier("subjectBlockValidator")
+	private SubjectBlockValidator subjectBlockValidator;
+	
 
 	@GetMapping
 	public String getSubjectBlockList(Model model) {
