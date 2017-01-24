@@ -49,9 +49,7 @@ public class GradeService {
 		Dictionary dictionary = dictionaryService.getDictionaries();
 
 		for (SubjectBlockDTO subjectBlockDTO : subjectBlockDTOList) {
-			dictionaryElement.setId(subjectBlockDTO.getSubjectBlockId());
-			dictionaryElement.setName(dictionaryService.generateDescription(dictionary, subjectBlockDTO));
-			studentSubjectList.add(dictionaryElement);
+			studentSubjectList.add(new DictionaryElement(subjectBlockDTO.getSubjectBlockId(), dictionaryService.generateDescription(dictionary, subjectBlockDTO)));
 		}
 
 		return studentSubjectList;

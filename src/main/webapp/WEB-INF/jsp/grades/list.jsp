@@ -123,7 +123,7 @@
 	                              			<p class="category">Lista użytkowników systemu</p>
 										</div>
                            			</div>
-		                     		<div class="card-content table-responsive">          
+		                     		<div class="card-content">          
 										<div class="form-group">
 											<label for="studentSubject">Wybierz zajęcia:</label>
 												<select id="studentSubject" name="studentSubject" class="selectpicker" data-style="select-with-transition" title="Wybierz przedmiot" data-size="8">
@@ -132,18 +132,19 @@
 													</c:forEach>
 												</select>
 										</div>
-
-										<table class="table" id="grades">
-											<thead>
-												<tr>
-													<th>Opis</th>
-													<th>Ocena</th>
-													<th>Data</th>
-												</tr>
-											</thead>
-											<tbody id="gradeTable">
-											</tbody>
-										</table>
+										<div class="table-responsive">
+											<table class="table" id="grades">
+												<thead>
+													<tr>
+														<th>Opis</th>
+														<th>Ocena</th>
+														<th>Data</th>
+													</tr>
+												</thead>
+												<tbody id="gradeTable">
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 							</div>
