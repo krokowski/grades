@@ -124,16 +124,17 @@
                            </div>
 		                     <div class="card-content table-responsive">
 			                     <div class="container-fluid" id="container">			
+										<form:form action="add" modelAttribute="grade" method="post">
 											<div class="form-group label-floating">
 												<label class="control-label" for="subjectBlock">Wybierz zajęcia:</label>
-												<select id="subjectBlock" name="subjectBlock" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8">
+												<select id="subjectBlock" name="subjectBlockId" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8">
 													<c:forEach items="${subjectBlockList}" var="subjectBlock">
 														<option value="${subjectBlock.subjectBlockId}">${subjectBlock.description}</option>
 													</c:forEach>
 												</select>
 											</div>			
 
-											<form:form action="add" modelAttribute="grade" method="post" id="gradeForm">
+											<div id="gradeForm">
 												<div class="form-group">
 											    	<label class="control-label" for="subject">Wybierz studenta:</label>
 											    	<!-- <select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8"> -->
@@ -153,7 +154,8 @@
 											 		<label class="control-label" for="date">Data:</label>
 											 		<input type="date" class="form-control" name="date" id="date" />
 											 	</div>
-											 	<button type="submit" class="btn btn-primary pull-right" form="gradeForm">Zapisz</button>
+											 	<button type="submit" class="btn btn-primary pull-right" form="grade">Zapisz</button>
+											 </div>
 											</form:form>
 										</div>
 									</div> 

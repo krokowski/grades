@@ -115,15 +115,14 @@
 			
 				<div class="content">
 					<div class="container-fluid">
-		            <div class="row">
-		               <div class="col-md-12">
-		                  <div class="card">
-                           <div class="card-header" data-background-color="green">
-                              <h4 class="title">Użytkownicy</h4>
-                              <p class="category">Dodaj użytkownika</p>
-                           </div>
-		                     <div class="card-content table-responsive">
-			                     <div class="container-fluid">
+		            	<div class="row">
+		               		<div class="col-md-12">
+		                  		<div class="card">
+                           			<div class="card-header" data-background-color="green">
+                              			<h4 class="title">Użytkownicy</h4>
+                              			<p class="category">Dodaj użytkownika</p>
+                           			</div>
+		                     		<div class="card-content">
 											<form:form action="add" modelAttribute="user" method="post" id="userForm">
 												<div class="form-group label-floating">
 													<label class="control-label" for="email">Adres email</label>
@@ -137,9 +136,9 @@
 												<div class="form-group label-floating">
 													<label class="control-label" for="role">Rola</label>
 													<select id="role" name="role" class="selectpicker" data-style="select-with-transition" title="Wybierz rolę" data-size="2">
-                                          <option value="ROLE_WORKER">Pracownik</option>
-                        						<option value="ROLE_STUDENT">Student</option>
-                                     </select>
+			                                        	<option value="ROLE_WORKER">Pracownik</option>
+			                        					<option value="ROLE_STUDENT">Student</option>
+			                                     	</select>
 												</div>    
 												<div class="form-group label-floating">
 													<label class="control-label" for="firstName">Imię</label>
@@ -159,7 +158,6 @@
 												</div>
 												<input type="submit" value="Dodaj" class="btn btn-primary pull-right"></input>
 											</form:form>
-										</div> 
 									</div> 
 								</div>
 							</div>

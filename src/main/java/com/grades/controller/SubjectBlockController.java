@@ -54,7 +54,7 @@ public class SubjectBlockController {
 	}
 
 	@PostMapping(path = "/add")
-	public String createSubjectBlock(@ModelAttribute("subjectBlock") SubjectBlock subjectBlock, Model model) {
+	public String createSubjectBlock(@ModelAttribute("subjectBlock") SubjectBlock subjectBlock) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication()
 				.getPrincipal();
 		//if (subjectBlockService.isUnique(subjectBlock)) {

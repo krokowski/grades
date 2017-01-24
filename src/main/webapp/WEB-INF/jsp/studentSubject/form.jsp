@@ -119,22 +119,20 @@
                               <h4 class="title">Zajęcia</h4>
                               <p class="category">Dodaj zajęcia</p>
                            </div>
-		                     <div class="card-content table-responsive">
+		                     <div class="card-content">
 			                     
 
-			                     <div class="container-fluid">
 											<form:form action="add" modelAttribute="studentSubject" method="post">
 												<div class="form-group label-floating">
 											    	<label for="subject">Wybierz zajęcia:</label>
-											    	<select id="studentSubject" name="studentSubject" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8">
-												      	<c:forEach items="${subjectBlockList}" var="studentSubject">
-												      		<option value="${subjectBlockList.value}">${subjectBlockList.value}</option>
+											    	<select id="subjectBlockId" name="subjectBlockId" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8">
+												      	<c:forEach items="${subjectBlockList}" var="subjectBlock">
+												      		<option value="${subjectBlock.subjectBlockId}">${subjectBlock.description}</option>
 												      	</c:forEach>
 											    	</select>
 											 	</div>
-											 	<inp type="submit" class="btn btn-primary pull-right">Zapisz</button>
+											 	<input type="submit" value="Wybierz" class="btn btn-primary pull-right"></input>
 											</form:form>
-										</div>
 
 									</div> 
 								</div>
