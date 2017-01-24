@@ -11,7 +11,7 @@ public class Grade {
 
   private int grade;
 
-  private Date date;
+  private String date;
 
   private String description;
   

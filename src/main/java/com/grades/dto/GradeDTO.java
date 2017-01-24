@@ -8,6 +8,9 @@ import javax.persistence.*;
 
 import com.grades.domain.Grade;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -32,12 +35,17 @@ public class GradeDTO {
     private String description;
 
     @Column(name = "student_subject_id")
-    private Long studentSubjectId;
+    private Long studentSubjectId;    
     
     public GradeDTO(Grade grade) {
     	this.gradeId = grade.getGradeId();
     	this.grade = grade.getGrade();
-    	this.date = grade.getDate();
+    	DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+    	try {
+			this.date = df.parse(grade.getDate());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
     	this.description = grade.getDescription();
     }
 

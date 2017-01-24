@@ -7,6 +7,7 @@
 <html>
 	<head>
 		<title>Informacje o ocenach</title>
+
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -132,7 +133,7 @@
 										 	</div>
 										 	<div class="form-group">
 										    	<label class="control-label" for="subjectForm">Wybierz formę zajęć:</label>
-										    	<select class="selectpicker" id="subjectForm" name="subjectFormId" data-style="select-with-transition" title="Wybierz przedmiot" data-size="7">
+										    	<select class="selectpicker" id="subjectForm" name="subjectFormId" data-style="select-with-transition" title="Wybierz formę zajęć" data-size="7">
 											      	<c:forEach items="${subjectFormDictionary}" var="subjectForm">
 											      		<option value="${subjectForm.subjectFormId}">${subjectForm.name}</option>
 											      	</c:forEach>
@@ -140,7 +141,7 @@
 										 	</div>
 										 	<div class="form-group">
 										    	<label class="control-label" for="group">Wybierz grupę:</label>
-										    	<select class="selectpicker" id="group" name="groupId" data-style="select-with-transition" title="Wybierz przedmiot" data-size="7">
+										    	<select class="selectpicker" id="group" name="groupId" data-style="select-with-transition" title="Wybierz grupę" data-size="7">
 											      	<c:forEach items="${groupDictionary}" var="group">
 											      		<option value="${group.groupId}">${group.name}</option>
 											      	</c:forEach>
@@ -166,6 +167,7 @@
 			</div>
 		</div>
 	</body>
+	
 	<script type="text/javascript">
 
 		jQuery(document).ready(function($) {

@@ -126,7 +126,7 @@
 		                     		<div class="card-content table-responsive">          
 										<div class="form-group">
 											<label for="studentSubject">Wybierz zajęcia:</label>
-												<select class="form-control" id="studentSubject" name="studentSubject">
+												<select id="studentSubject" name="studentSubject" class="selectpicker" data-style="select-with-transition" title="Wybierz przedmiot" data-size="8">
 													<c:forEach items="${studentSubjectList}" var="studentSubject">
 														<option value="${studentSubject.id}">${studentSubject.name}</option>
 													</c:forEach>
@@ -211,5 +211,6 @@
 		}
 	</script>
 	<script src="../resources/js/material.min.js" type="text/javascript"></script>
+	<script src="../resources/js/jquery.select-bootstrap.js" type="text/javascript"></script>
 	<script src="../resources/js/material-dashboard.js"></script>
 </html>
