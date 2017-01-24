@@ -60,7 +60,7 @@ public class SubjectBlockController {
 		//if (subjectBlockService.isUnique(subjectBlock)) {
 			subjectBlock.setWorkerId(workerDAO.findWorkerIdByUserId(customUserDetails.getUserId()));
 			subjectBlockService.createSubjectBlock(subjectBlock);
-			return "redirect:";
+			return "redirect:/subject-block";
 	}
 
 	@GetMapping(path = "/add-subject")
@@ -72,7 +72,7 @@ public class SubjectBlockController {
 	public String createSubject(HttpServletRequest request,
 			@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, BindingResult result) {
 		dictionaryService.createSubject(dictionaryElement);
-		return "home";
+		return "redirect:/subject-block";
 	}
 
 	@GetMapping(path = "/add-subject-form")
@@ -84,7 +84,7 @@ public class SubjectBlockController {
 	public String createSubjectForm(HttpServletRequest request,
 			@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, BindingResult result) {
 		dictionaryService.createSubjectForm(dictionaryElement);
-		return "home";
+		return "redirect:/subject-block";
 	}
 
 	@GetMapping(path = "/add-group")
@@ -96,7 +96,7 @@ public class SubjectBlockController {
 	public String createGroup(HttpServletRequest request,
 			@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, BindingResult result) {
 		dictionaryService.createGroup(dictionaryElement);
-		return "home";
+		return "redirect:/subject-block";
 	}
 
 }

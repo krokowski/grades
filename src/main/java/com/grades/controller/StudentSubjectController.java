@@ -48,7 +48,7 @@ public class StudentSubjectController {
 	public String createStudentSubject(@ModelAttribute("studentSubject") @Valid StudentSubject studentSubject,
 			BindingResult result) {
 		studentSubjectService.createStudentSubject(studentSubject);
-		return "studentSubject/form";
+		return "redirect:/student-subject";
 	}
 
 }
