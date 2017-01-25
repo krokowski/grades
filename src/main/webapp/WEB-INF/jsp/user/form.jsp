@@ -10,6 +10,8 @@
 
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+		<script src="../resources/js/jquery.validate.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -126,35 +128,35 @@
 											<form:form action="add" modelAttribute="user" method="post" id="userForm">
 												<div class="form-group label-floating">
 													<label class="control-label" for="email">Adres email</label>
-												   <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+												   <input type="email" class="form-control" id="email" name="email" required maxlength="100">
 												</div>
 												<div class="form-group label-floating">
 													<label class="control-label" for="password">Hasło</label>
-													<input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
+													<input type="password" class="form-control" id="password" name="password" required maxlength="60">
 													<!-- <small id="passwordHelp" class="form-text form-muted">Hasło musi zawierać...</small> -->
 												</div>
 												<div class="form-group label-floating">
 													<label class="control-label" for="role">Rola</label>
-													<select id="role" name="role" class="selectpicker" data-style="select-with-transition" title="Wybierz rolę" data-size="2">
+													<select id="role" name="role" class="selectpicker" data-style="select-with-transition" title="Wybierz rolę" data-size="2" required>
 			                                        	<option value="ROLE_WORKER">Pracownik</option>
 			                        					<option value="ROLE_STUDENT">Student</option>
 			                                     	</select>
 												</div>    
 												<div class="form-group label-floating">
 													<label class="control-label" for="firstName">Imię</label>
-													<input type="text" class="form-control" id="firstName" name="firstName">
+													<input type="text" class="form-control" id="firstName" name="firstName" required maxlength="50">
 												</div>
 												<div class="form-group label-floating">
 													<label class="control-label" for="lastName">Nazwisko</label>
-													<input type="text" class="form-control" id="lastName" name="lastName">
+													<input type="text" class="form-control" id="lastName" name="lastName" required maxlength="50">
 												</div>
 												<div class="form-group label-floating">
 													<label class="control-label" for="pesel">Pesel</label>
-													<input type="text" class="form-control" id="pesel" name="pesel">
+													<input type="text" class="form-control" id="pesel" name="pesel" required digits="true" minlength="11" maxlength="11">
 												</div>
 												<div class="form-group label-floating" id="indexNoDiv" style="display: none;">
 													<label class="control-label" for="indexNo">Nr Indeksu</label>
-													<input type="text" class="form-control" id="indexNo" name="indexNo">
+													<input type="text" class="form-control" id="indexNo" name="indexNo" digits="true" maxlength="10">
 												</div>
 												<input type="submit" value="Dodaj" class="btn btn-primary pull-right"></input>
 											</form:form>
@@ -178,13 +180,17 @@
 	</body>
 	
 	<script type="text/javascript">
+		$("#userForm").validate();
+	
 		$(document).ready(function() {
 		   $('#role').on('change', function() {
 		     	if ( this.value == 'ROLE_STUDENT') {
 		        	$("#indexNoDiv").show();
+		        	$("#indexNo").prop('required',true);
 		      }
 		      else {
 		        	$("#indexNoDiv").hide();
+		        	$("#input").prop('required',false);
 		      }
 		   });
 		});
@@ -192,6 +198,7 @@
 	<script src="../resources/js/material.min.js" type="text/javascript"></script>
 	<script src="../resources/js/jquery.select-bootstrap.js" type="text/javascript"></script>
 	<script src="../resources/js/material-dashboard.js"></script>
+	
 
 
 
