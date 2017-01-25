@@ -10,6 +10,8 @@
 
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+		<script src="../resources/js/jquery.validate.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -122,10 +124,10 @@
                               			<p class="category">Dodaj zajęcia</p>
                            			</div>
 		                     		<div class="card-content">
-										<form:form action="add" modelAttribute="subjectBlock" method="post">
+										<form:form action="add" modelAttribute="subjectBlock" method="post" id="subjectBlockForm">
 											<div class="form-group label-floating">
 										    	<label class="control-label" for="subject">Wybierz przedmiot:</label>
-										    	<select class="selectpicker" id="subject" name="subjectId" data-style="select-with-transition" title="Wybierz przedmiot" data-size="7">
+										    	<select class="selectpicker" id="subject" name="subjectId" data-style="select-with-transition" title="Wybierz przedmiot" data-size="7" required>
 											      	<c:forEach items="${subjectDictionary}" var="subject">
 											      		<option value="${subject.subjectId}">${subject.name}</option>
 											      	</c:forEach>
@@ -133,7 +135,7 @@
 										 	</div>
 										 	<div class="form-group">
 										    	<label class="control-label" for="subjectForm">Wybierz formę zajęć:</label>
-										    	<select class="selectpicker" id="subjectForm" name="subjectFormId" data-style="select-with-transition" title="Wybierz formę zajęć" data-size="7">
+										    	<select class="selectpicker" id="subjectForm" name="subjectFormId" data-style="select-with-transition" title="Wybierz formę zajęć" data-size="7" required>
 											      	<c:forEach items="${subjectFormDictionary}" var="subjectForm">
 											      		<option value="${subjectForm.subjectFormId}">${subjectForm.name}</option>
 											      	</c:forEach>
@@ -141,7 +143,7 @@
 										 	</div>
 										 	<div class="form-group">
 										    	<label class="control-label" for="group">Wybierz grupę:</label>
-										    	<select class="selectpicker" id="group" name="groupId" data-style="select-with-transition" title="Wybierz grupę" data-size="7">
+										    	<select class="selectpicker" id="group" name="groupId" data-style="select-with-transition" title="Wybierz grupę" data-size="7" required>
 											      	<c:forEach items="${groupDictionary}" var="group">
 											      		<option value="${group.groupId}">${group.name}</option>
 											      	</c:forEach>
@@ -169,6 +171,8 @@
 	</body>
 	
 	<script type="text/javascript">
+	
+		$("#subjectBlockForm").validate();
 
 		jQuery(document).ready(function($) {
 			document.getElementById("subject").selectedIndex = -1;
