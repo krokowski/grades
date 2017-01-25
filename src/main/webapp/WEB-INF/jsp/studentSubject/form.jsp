@@ -38,48 +38,66 @@
 		    	<div class="sidebar-wrapper">
 					<ul class="nav">
 						<li>
-			               <a href="../home">
-			                  <i class="material-icons">dashboard</i>
-			                  <p>Aktualności</p>
+		               <a href="../home">
+		                  <i class="material-icons">dashboard</i>
+		                  <p>Aktualności</p>
+		               </a>
+		            </li>
+		            <sec:authorize access="hasRole('ROLE_STUDENT')">
+			            <li>
+			               <a href="grades">
+			                  <i class="material-icons">grade</i>
+			                  <p>Oceny</p>
 			               </a>
 			            </li>
-			            <sec:authorize access="hasRole('ROLE_STUDENT')">
-				            <li>
-				               <a href="../grades">
-				                  <i class="material-icons">grade</i>
-				                  <p>Oceny</p>
-				               </a>
-				            </li>
-				            <li class="active">
-			                  <a href="../student-subject">
-				                  <i class="material-icons">content_paste</i>
-				                  <p>Zajęcia</p>
-				               </a>
-				            </li>
-				         </sec:authorize>
-				         <sec:authorize access="hasRole('ROLE_WORKER')">
-			               <li>
-			                  <a href="grade/add">
-			                     <i class="material-icons">grade</i>
-			                     <p>Dodaj ocenę</p>
-			                  </a>
-			               </li>
-			               <li>
-			                  <a href="subject-block">
-			                     <i class="material-icons">content_paste</i>
-			                     <p>Przedmioty</p>
-			                  </a>
-			               </li>
-			            </sec:authorize>
-			            <sec:authorize access="hasRole('ROLE_ADMIN')">
-				            <li>
-				               <a href="user">
-				                  <i class="material-icons">person</i>
-				                  <p>Użytkownicy</p>
-				               </a>
-				            </li>
-				         </sec:authorize>
-			         </ul>
+			            <li>
+		                  <a href="student-subject">
+			                  <i class="material-icons">content_paste</i>
+			                  <p>Zajęcia</p>
+			               </a>
+			            </li>
+			         </sec:authorize>
+			         <sec:authorize access="hasRole('ROLE_WORKER')">
+		               <li>
+		                  <a href="../grade/add">
+		                     <i class="material-icons">grade</i>
+		                     <p>Dodaj ocenę</p>
+		                  </a>
+		               </li>
+		               <li class="active">
+		                  <a href="../subject-block">
+		                     <i class="material-icons">content_paste</i>
+		                     <p>Przedmioty</p>
+		                  </a>
+		               </li>
+		               <li>
+		                  <a href="../subject-block/add-subject">
+		                     <i class="material-icons">grade</i>
+		                     <p>Dodaj przedmiot</p>
+		                  </a>
+		               </li>
+		               <li>
+		                  <a href="../subject-block/add-subject-form">
+		                     <i class="material-icons">grade</i>
+		                     <p>Dodaj formę zajęć</p>
+		                  </a>
+		               </li>
+		               <li>
+		                  <a href="../subject-block/add-group">
+		                     <i class="material-icons">grade</i>
+		                     <p>Dodaj grupę</p>
+		                  </a>
+		               </li>
+		            </sec:authorize>
+		            <sec:authorize access="hasRole('ROLE_ADMIN')">
+			            <li>
+			               <a href="user">
+			                  <i class="material-icons">person</i>
+			                  <p>Użytkownicy</p>
+			               </a>
+			            </li>
+			         </sec:authorize>
+		         </ul>
 		    	</div>
 			</div>
 		

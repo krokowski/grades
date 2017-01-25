@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,6 @@ import com.grades.domain.Student;
 import com.grades.security.CustomUserDetails;
 import com.grades.service.GradeService;
 import com.grades.service.SubjectBlockService;
-import com.grades.validator.GradeValidator;
 
 @Controller
 public class GradeController {
@@ -36,7 +36,7 @@ public class GradeController {
 	
 	@Autowired
 	@Qualifier("gradeValidator")
-	private GradeValidator gradeValidator;
+	private Validator gradeValidator;
 	
 
 	@GetMapping(path = "/grades")

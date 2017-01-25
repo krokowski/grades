@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,6 @@ import com.grades.domain.SubjectBlock;
 import com.grades.security.CustomUserDetails;
 import com.grades.service.DictionaryService;
 import com.grades.service.SubjectBlockService;
-import com.grades.validator.SubjectBlockValidator;
 
 /**
  * @author Wojciech.Krokowski
@@ -42,7 +42,7 @@ public class SubjectBlockController {
 	
 	@Autowired
 	@Qualifier("subjectBlockValidator")
-	private SubjectBlockValidator subjectBlockValidator;
+	private Validator subjectBlockValidator;
 	
 
 	@GetMapping
@@ -64,7 +64,6 @@ public class SubjectBlockController {
 	public String createSubjectBlock(@ModelAttribute("subjectBlock") SubjectBlock subjectBlock) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication()
 				.getPrincipal();
-		//if (subjectBlockService.isUnique(subjectBlock)) {
 			subjectBlock.setWorkerId(workerDAO.findWorkerIdByUserId(customUserDetails.getUserId()));
 			subjectBlockService.createSubjectBlock(subjectBlock);
 			return "redirect:/subject-block";
