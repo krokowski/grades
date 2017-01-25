@@ -10,6 +10,8 @@
 		
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+		<script src="../resources/js/jquery.validate.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -121,10 +123,10 @@
                            			</div>
 		                     		<div class="card-content">
 										<div class="container-fluid">
-											<form:form modelAttribute="dictionaryElement" method="post">
-												<div class="form-group">
-											    	<label for="name">Wprowadź nazwę:</label>
-											    	<input type="text" name="name" id="name">
+											<form:form modelAttribute="dictionaryElement" method="post" id="dictionaryElementForm">
+												<div class="form-group label-floating">
+											    	<label class="control-label" for="name">Wprowadź nazwę:</label>
+											    	<input type="text" name="name" id="name" required maxlength="45">
 											 	</div>
 											 	<button type="submit" class="btn btn-primary pull-right">Zapisz</button>
 											</form:form>
@@ -147,6 +149,12 @@
 			</div>
 		</div>
 	</body>
+	
+	<script type="text/javascript">
+		
+		$("#dictionaryElementForm").validate();
+	
+	</script>
 
 	<script src="../resources/js/material.min.js" type="text/javascript"></script>
 	<script src="../resources/js/jquery.select-bootstrap.js" type="text/javascript"></script>
