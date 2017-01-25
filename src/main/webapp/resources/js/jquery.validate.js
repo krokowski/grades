@@ -363,8 +363,8 @@ $.extend( $.validator, {
 		minlength: $.validator.format( "Proszę podać przynajmniej {0} znaków" ),
 		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
 		range: $.validator.format( "Please enter a value between {0} and {1}." ),
-		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
-		min: $.validator.format( "Please enter a value greater than or equal to {0}." ),
+		max: $.validator.format( "Proszę podać wartość mniejszą lub równą {0}." ),
+		min: $.validator.format( "Proszę podać wartość większą lub równą {0}." ),
 		step: $.validator.format( "Please enter a multiple of {0}." )
 	},
 

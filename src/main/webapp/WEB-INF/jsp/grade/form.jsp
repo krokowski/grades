@@ -10,6 +10,8 @@
 
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+		<script src="../resources/js/jquery.validate.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -124,7 +126,7 @@
                            </div>
 		                     <div class="card-content table-responsive">
 			                     <div class="container-fluid" id="container">			
-										<form:form action="add" modelAttribute="grade" method="post">
+										<form:form action="add" modelAttribute="grade" method="post" id="gradeForm">
 											<div class="form-group label-floating">
 												<label class="control-label" for="subjectBlock">Wybierz zajęcia:</label>
 												<select id="subjectBlock" name="subjectBlockId" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8">
@@ -134,7 +136,7 @@
 												</select>
 											</div>			
 
-											<div id="gradeForm">
+											<div id="gradeDiv">
 												<div class="form-group">
 											    	<label class="control-label" for="subject">Wybierz studenta:</label>
 											    	<!-- <select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8"> -->
@@ -144,17 +146,17 @@
 											 	</div>
 											 	<div class="form-group label-floating">
 											 		<label class="control-label" for="grade">Ocena:</label>
-											 		<input type="number" class="form-control" name="grade" id="grade" min="2" max="5"/>
+											 		<input type="number" class="form-control" name="grade" id="grade" min="2" max="5" required/>
 											 	</div>
 											 	<div class="form-group label-floating">
 											 		<label class="control-label" for="description">Opis:</label>
-											 		<input type="text" class="form-control" name="description" id="description" />
+											 		<input type="text" class="form-control" name="description" id="description" required/>
 											 	</div>
 											 	<div class="form-group">
 											 		<label class="control-label" for="date">Data:</label>
-											 		<input type="date" class="form-control" name="date" id="date" />
+											 		<input type="date" class="form-control" name="date" id="date" required/>
 											 	</div>
-											 	<button type="submit" class="btn btn-primary pull-right" form="grade">Zapisz</button>
+											 	<button type="submit" class="btn btn-primary pull-right" form="gradeForm">Zapisz</button>
 											 </div>
 											</form:form>
 										</div>
@@ -178,12 +180,14 @@
 	</body>
 
 	<script type="text/javascript">
+	
+		$("#gradeForm").validate();
 
 		jQuery(document).ready(function($) {
 
 			var bigger = false;
 
-			$("#gradeForm").hide();
+			$("#gradeDiv").hide();
 			document.getElementById("subjectBlock").selectedIndex = -1;
 
 			$("#subjectBlock").on('change', function(event) {
@@ -232,7 +236,7 @@
 						trHTML += '<option value=' + data[i].indexNo + '>' + data[i].description + '</option>';
 					}
 					$('#indexNo').html(trHTML);
-					$("#gradeForm").show();
+					$("#gradeDiv").show();
 				},
 				error : function(e) {
 					console.log("ERROR: ", e);
