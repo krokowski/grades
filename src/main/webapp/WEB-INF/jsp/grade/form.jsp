@@ -154,7 +154,7 @@
 												</select>
 											</div>			
 
-											<div id="gradeDiv">
+											<div id="gradeDiv" style="display: none;">
 												<div class="form-group">
 											    	<label class="control-label" for="subject">Wybierz studenta:</label>
 											    	<!-- <select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8"> -->
@@ -205,7 +205,6 @@
 
 			var bigger = false;
 
-			$("#gradeDiv").hide();
 			document.getElementById("subjectBlock").selectedIndex = -1;
 
 			$("#subjectBlock").on('change', function(event) {
@@ -213,25 +212,6 @@
 				searchViaAjax();
 			});
 
-			$(".filter-option.pull-left").click(function() {
-				var x = $(".dropdown-menu.open").height();
-				if (!bigger) {
-					$(".card").css('min-height', $(".card").height() + x + 10);
-					$("#container").css('min-height', $(".card-content.table-responsive").height() + 10);
-					$(".card-content.table-responsive").css('min-height', $(".card-content.table-responsive").height() + x + 10);
-					bigger = !bigger;
-				}
-			});
-
-			$(".btn.dropdown-toggle.bs-placeholder.select-with-transition").click(function() {
-				var x = $(".dropdown-menu.open").height();
-				if (!bigger) {
-					$(".card").css('min-height', $(".card").height() + x + 10);
-					$("#container").css('min-height', $(".card-content.table-responsive").height() + 10);
-					$(".card-content.table-responsive").css('min-height', $(".card-content.table-responsive").height() + x + 10);
-					bigger = !bigger;
-				}
-			});			
 		});
 
 		function searchViaAjax() {
@@ -254,7 +234,7 @@
 						trHTML += '<option value=' + data[i].indexNo + '>' + data[i].description + '</option>';
 					}
 					$('#indexNo').html(trHTML);
-					$("#gradeDiv").show();
+					$("#gradeDiv").slideDown("slow");
 				},
 				error : function(e) {
 					console.log("ERROR: ", e);

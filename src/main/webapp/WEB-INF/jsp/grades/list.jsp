@@ -150,7 +150,7 @@
 													</c:forEach>
 												</select>
 										</div>
-										<div class="table-responsive">
+										<div class="table-responsive" style="display: none;">
 											<table class="table" id="grades">
 												<thead>
 													<tr>
@@ -215,6 +215,7 @@
 						trHTML += '<tr><td>' + data[i].description + '</td><td>' + data[i].grade + '</td><td>' + data[i].date + '</td></tr>';
 					}
 					$('#gradeTable').html(trHTML);
+					$('.table-responsive').slideDown("slow");
 				},
 				error : function(e) {
 					console.log("ERROR: ", e);
