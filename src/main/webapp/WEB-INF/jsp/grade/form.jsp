@@ -12,6 +12,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		
 		<script src="../resources/js/jquery.validate.js"></script>
+		
+		<script src="../resources/js/jquery.select-bootstrap.js" type="text/javascript"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -157,8 +159,7 @@
 											<div id="gradeDiv" style="display: none;">
 												<div class="form-group">
 											    	<label class="control-label" for="subject">Wybierz studenta:</label>
-											    	<!-- <select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8"> -->
-											    	<select class="form-control" id="indexNo" name="indexNo">
+											    	<select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8">
 												      	<!-- TUTAJ WRACAJĄ DANE PRZEZ AJAXA -->
 											    	</select>
 											 	</div>
@@ -234,6 +235,7 @@
 						trHTML += '<option value=' + data[i].indexNo + '>' + data[i].description + '</option>';
 					}
 					$('#indexNo').html(trHTML);
+					$('#indexNo').selectpicker('refresh');
 					$("#gradeDiv").slideDown("slow");
 				},
 				error : function(e) {
@@ -250,7 +252,6 @@
 		}
 	</script>
 	<script src="../resources/js/material.min.js" type="text/javascript"></script>
-	<script src="../resources/js/jquery.select-bootstrap.js" type="text/javascript"></script>
 	<script src="../resources/js/material-dashboard.js"></script>
 
 </html>

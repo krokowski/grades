@@ -47,7 +47,7 @@
 					</c:if>
 					<div class="form-group label-floating">
 							<label class="control-label">Email</label>
-							<input type="text" class="form-control" name="email" >
+							<input type="text" class="form-control" name="email" autofocus>
 					</div>
 					<div class="form-group label-floating">
 							<label class="control-label">Hasło</label>
