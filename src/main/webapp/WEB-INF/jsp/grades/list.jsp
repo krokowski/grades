@@ -146,7 +146,7 @@
 			                     			<c:when test="${studentSubjectListEmpty}">
 												<div class="alert alert-warning alert-with-icon" data-notify="container">
 				                               		<i data-notify="icon" class="material-icons">error_outline</i>
-													<span data-notify="message">Nie zapisałeś się na żadne przedmioty</span>
+													<span data-notify="message">Nie zapisałeś się na żadne zajęcia</span>
 												</div>
 											</c:when> 
 											<c:otherwise>      
