@@ -143,9 +143,10 @@
                            			</div>
 		                     		<div class="card-content">
 										<form:form action="add" modelAttribute="subjectBlock" method="post" id="subjectBlockForm">
+
 											<div class="form-group label-floating">
 										    	<label class="control-label" for="subject">Wybierz przedmiot:</label>
-										    	<select class="selectpicker" id="subject" name="subjectId" data-style="select-with-transition" title="Wybierz przedmiot" data-size="7" required>
+										    	<select path="subjectId" class="selectpicker" id="subject" name="subjectId" data-style="select-with-transition" title="Wybierz przedmiot" data-size="7" required>
 											      	<c:forEach items="${subjectDictionary}" var="subject">
 											      		<option value="${subject.subjectId}">${subject.name}</option>
 											      	</c:forEach>

@@ -47,13 +47,13 @@
 		            </li>
 		            <sec:authorize access="hasRole('ROLE_STUDENT')">
 			            <li>
-			               <a href="grades">
+			               <a href="../grades">
 			                  <i class="material-icons">grade</i>
 			                  <p>Oceny</p>
 			               </a>
 			            </li>
 			            <li class="active">
-		                  <a href="student-subject">
+		                  <a href="../student-subject">
 			                  <i class="material-icons">content_paste</i>
 			                  <p>Zajęcia</p>
 			               </a>
@@ -140,11 +140,18 @@
 	                              			<h4 class="title">Zajęcia</h4>
 	                              			<p class="category">Lista wybranych przez studenta zajęć</p>
 										</div>
-										<a href="student-subject/add">
+										<a href="../student-subject/add">
 			                            	<button class="btn">DODAJ</button>
 			                            </a>
                            			</div>
+                           			
                            			<div class="card-content table-responsive"> 
+                           				<c:if test="${subjectAddEmpty}">
+											<div class="alert alert-danger alert-with-icon" data-notify="container">
+			                               		<i data-notify="icon" class="material-icons">error_outline</i>
+												<span data-notify="message">Brak dostępnych zajęć, na które możesz się zapisać!</span>
+											</div>
+										</c:if>
                            				<table class="table">
                            					<thead>
 												<tr>

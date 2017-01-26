@@ -10,6 +10,8 @@
 		
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+		<script src="../resources/js/jquery.validate.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -140,10 +142,10 @@
 		                     <div class="card-content">
 			                     
 
-											<form:form action="add" modelAttribute="studentSubject" method="post">
+											<form:form action="add" modelAttribute="studentSubject" method="post" id="studentSubjectForm">
 												<div class="form-group label-floating">
 											    	<label for="subject">Wybierz zajęcia:</label>
-											    	<select id="subjectBlockId" name="subjectBlockId" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8">
+											    	<select id="subjectBlockId" name="subjectBlockId" class="selectpicker" data-style="select-with-transition" title="Wybierz zajęcia" data-size="8" required>
 												      	<c:forEach items="${subjectBlockList}" var="subjectBlock">
 												      		<option value="${subjectBlock.subjectBlockId}">${subjectBlock.description}</option>
 												      	</c:forEach>
@@ -170,6 +172,10 @@
 			</div>
 		</div>
 	</body>
+	
+	<script type="text/javascript">
+		$("#studentSubjectForm").validate();
+	</script>
 
 	<script src="../resources/js/material.min.js" type="text/javascript"></script>
 	<script src="../resources/js/jquery.select-bootstrap.js" type="text/javascript"></script>

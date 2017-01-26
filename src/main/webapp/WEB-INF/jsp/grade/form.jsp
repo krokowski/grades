@@ -142,7 +142,7 @@
                               <h4 class="title">Oceny</h4>
                               <p class="category">Dodaj ocenę</p>
                            </div>
-		                     <div class="card-content table-responsive">
+		                     <div class="card-content">
 			                     <div class="container-fluid" id="container">			
 										<form:form action="add" modelAttribute="grade" method="post" id="gradeForm">
 											<div class="form-group label-floating">
