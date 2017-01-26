@@ -229,6 +229,9 @@
 				data : JSON.stringify(search) ,
 				dataType : 'json',
 				timeout : 100000,
+				beforesend: function() {
+					$("#gradeDiv").slideUp("slow");
+				},
 				success : function(data) {
 
 					for (i=0; i<data.length; i++) {
