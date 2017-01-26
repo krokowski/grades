@@ -159,7 +159,7 @@
 											<div id="gradeDiv" style="display: none;">
 												<div class="form-group">
 											    	<label class="control-label" for="subject">Wybierz studenta:</label>
-											    	<select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8">
+											    	<select id="indexNo" name="indexNo" class="selectpicker" data-style="select-with-transition" title="Wybierz studenta" data-size="8" required>
 												      	<!-- TUTAJ WRACAJĄ DANE PRZEZ AJAXA -->
 											    	</select>
 											 	</div>

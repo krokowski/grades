@@ -147,9 +147,9 @@
                            			
                            			<div class="card-content table-responsive"> 
                            				<c:if test="${subjectAddEmpty}">
-											<div class="alert alert-danger alert-with-icon" data-notify="container">
+											<div class="alert alert-warning alert-with-icon" data-notify="container">
 			                               		<i data-notify="icon" class="material-icons">error_outline</i>
-												<span data-notify="message">Brak dostępnych zajęć, na które możesz się zapisać!</span>
+												<span data-notify="message">Brak dostępnych zajęć, na które możesz się zapisać</span>
 											</div>
 										</c:if>
                            				<table class="table">

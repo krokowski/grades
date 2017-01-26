@@ -30,8 +30,9 @@
 	<div class="login-block col-md-6">
 		<div class="card">		
 			<div class="card-content">
-				<div class="alert alert-warning">
-					UWAGA!<br/>Brak uprawnień do przeglądania tej strony!
+				<div class="alert alert-warning alert-with-icon" data-notify="container">
+				    <i data-notify="icon" class="material-icons">error_outline</i>
+					<span data-notify="message">UWAGA!<br/>Brak uprawnień do przeglądania tej strony!</span>
 				</div>
 				
 				<%-- <form action="/logout" method="post">

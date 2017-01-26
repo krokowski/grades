@@ -141,28 +141,38 @@
 	                              			<p class="category">Lista użytkowników systemu</p>
 										</div>
                            			</div>
-		                     		<div class="card-content">          
-										<div class="form-group">
-											<label for="studentSubject">Wybierz zajęcia:</label>
-												<select id="studentSubject" name="studentSubject" class="selectpicker" data-style="select-with-transition" title="Wybierz przedmiot" data-size="8">
-													<c:forEach items="${studentSubjectList}" var="studentSubject">
-														<option value="${studentSubject.id}">${studentSubject.name}</option>
-													</c:forEach>
-												</select>
-										</div>
-										<div class="table-responsive" style="display: none;">
-											<table class="table" id="grades">
-												<thead>
-													<tr>
-														<th>Opis</th>
-														<th>Ocena</th>
-														<th>Data</th>
-													</tr>
-												</thead>
-												<tbody id="gradeTable">
-												</tbody>
-											</table>
-										</div>
+		                     		<div class="card-content">
+		                     			<c:choose>
+			                     			<c:when test="${studentSubjectListEmpty}">
+												<div class="alert alert-warning alert-with-icon" data-notify="container">
+				                               		<i data-notify="icon" class="material-icons">error_outline</i>
+													<span data-notify="message">Nie zapisałeś się na żadne przedmioty</span>
+												</div>
+											</c:when> 
+											<c:otherwise>      
+												<div class="form-group">
+													<label for="studentSubject">Wybierz zajęcia:</label>
+														<select id="studentSubject" name="studentSubject" class="selectpicker" data-style="select-with-transition" title="Wybierz przedmiot" data-size="8">
+															<c:forEach items="${studentSubjectList}" var="studentSubject">
+																<option value="${studentSubject.id}">${studentSubject.name}</option>
+															</c:forEach>
+														</select>
+												</div>
+												<div class="table-responsive" style="display: none;">
+													<table class="table" id="grades">
+														<thead>
+															<tr>
+																<th>Opis</th>
+																<th>Ocena</th>
+																<th>Data</th>
+															</tr>
+														</thead>
+														<tbody id="gradeTable">
+														</tbody>
+													</table>
+												</div>
+											</c:otherwise>   
+										</c:choose>
 									</div>
 								</div>
 							</div>

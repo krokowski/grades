@@ -10,6 +10,8 @@
 	
 		<!-- jQuery 3.1.1 -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+		<script src="../resources/js/jquery.validate.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,7 +33,7 @@
 </head>
 <body class="login-body">
 
-	<form action="/login" method="post">
+	<form action="/login" method="post" id="loginForm">
 
 		<div class="login-block col-md-6">
 			<div class="card">
@@ -40,18 +42,24 @@
 						Informacje o ocenach	
 					</div>
 					<c:if test="${param.error ne null}">
-						<div class="alert alert-danger">Niepoprawny login lub hasło</div>
+						<div class="alert alert-danger alert-with-icon" data-notify="container">
+				            <i data-notify="icon" class="material-icons">error_outline</i>
+							<span data-notify="message">Niepoprawny login lub hasło</span>
+						</div>
 					</c:if>
 					<c:if test="${param.logout ne null}">
-						<div class="alert alert-success">Zostałeś poprawnie wylogowany</div>
+						<div class="alert alert-success alert-with-icon" data-notify="container">
+				            <i data-notify="icon" class="material-icons">info_outline</i>
+							<span data-notify="message">Zostałeś poprawnie wylogowany</span>
+						</div>
 					</c:if>
 					<div class="form-group label-floating">
 							<label class="control-label">Email</label>
-							<input type="text" class="form-control" name="email" autofocus>
+							<input type="text" class="form-control" name="email" autofocus required>
 					</div>
 					<div class="form-group label-floating">
 							<label class="control-label">Hasło</label>
-							<input type="password" class="form-control" name="password" >
+							<input type="password" class="form-control" name="password" required>
 					</div>
 					<div style="text-align:center;">
 						<input type="submit" value="Zaloguj się" class="btn btn-primary" />
@@ -62,10 +70,13 @@
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
 	</form>
-	
-	
 
 </body>
+
+<script type="text/javascript">
+	$("#loginForm").validate();
+</script>
+
 <script src="resources/js/material.min.js" type="text/javascript"></script>
 <script src="resources/js/material-dashboard.js"></script>
 

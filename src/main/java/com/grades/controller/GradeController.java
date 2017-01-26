@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.grades.domain.DictionaryElement;
 import com.grades.domain.Grade;
 import com.grades.domain.GradeContext;
 import com.grades.domain.Grades;
@@ -43,8 +44,15 @@ public class GradeController {
 	public String getGradesList(Model model) {
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication()
 				.getPrincipal();
-		model.addAttribute("studentSubjectList", gradeService.getStudentSubjectList(customUserDetails.getUserId()));
-		return "grades/list";
+		List<DictionaryElement> studentSubjectList = gradeService.getStudentSubjectList(customUserDetails.getUserId());
+		if (studentSubjectList.isEmpty()) {
+			model.addAttribute("studentSubjectListEmpty", true);
+			return "grades/list";
+		} else {
+			model.addAttribute("studentSubjectList", studentSubjectList);
+			model.addAttribute("studentSubjectListEmpty", false);
+			return "grades/list";
+		}
 	}
 
 	@PostMapping(path = "/ajax/grades")
