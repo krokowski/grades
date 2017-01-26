@@ -52,7 +52,7 @@
 			                  <p>Oceny</p>
 			               </a>
 			            </li>
-			            <li>
+			            <li class="active">
 		                  <a href="student-subject">
 			                  <i class="material-icons">content_paste</i>
 			                  <p>Zajęcia</p>
@@ -66,7 +66,7 @@
 		                     <p>Dodaj ocenę</p>
 		                  </a>
 		               </li>
-		               <li class="active">
+		               <li>
 		                  <a href="../subject-block">
 		                     <i class="material-icons">content_paste</i>
 		                     <p>Przedmioty</p>

@@ -45,13 +45,13 @@
 		            </li>
 		            <sec:authorize access="hasRole('ROLE_STUDENT')">
 			            <li>
-			               <a href="grades">
+			               <a href="../grades">
 			                  <i class="material-icons">grade</i>
 			                  <p>Oceny</p>
 			               </a>
 			            </li>
-			            <li>
-		                  <a href="student-subject">
+			            <li class="active">
+		                  <a href="../student-subject">
 			                  <i class="material-icons">content_paste</i>
 			                  <p>Zajęcia</p>
 			               </a>
@@ -64,7 +64,7 @@
 		                     <p>Dodaj ocenę</p>
 		                  </a>
 		               </li>
-		               <li class="active">
+		               <li>
 		                  <a href="../subject-block">
 		                     <i class="material-icons">content_paste</i>
 		                     <p>Przedmioty</p>

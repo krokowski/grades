@@ -65,7 +65,7 @@
 		                     <p>Dodaj ocenę</p>
 		                  </a>
 		               </li>
-		               <li class="active">
+		               <li>
 		                  <a href="../subject-block">
 		                     <i class="material-icons">content_paste</i>
 		                     <p>Przedmioty</p>
@@ -91,7 +91,7 @@
 		               </li>
 		            </sec:authorize>
 		            <sec:authorize access="hasRole('ROLE_ADMIN')">
-			            <li>
+			            <li class="active">
 			               <a href="user">
 			                  <i class="material-icons">person</i>
 			                  <p>Użytkownicy</p>

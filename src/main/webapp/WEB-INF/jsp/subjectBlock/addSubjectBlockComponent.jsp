@@ -3,6 +3,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
+ <c:choose>
+ 	<c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-subject'}">
+		<c:set var="title" value="Przedmiot" />
+		<c:set var="description" value="Dodaj przedmiot" />
+	</c:when>
+	<c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-subject-form'}">
+		<c:set var="title" value="Forma zajęć" />
+		<c:set var="description" value="Dodaj formę zajęć" />
+	</c:when>
+	<c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-group'}">
+		<c:set var="title" value="Grupa" />
+		<c:set var="description" value="Dodaj grupę" />
+	</c:when>
+</c:choose>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -67,27 +82,48 @@
 		                     <p>Dodaj ocenę</p>
 		                  </a>
 		               </li>
-		               <li class="active">
+		               <li>
 		                  <a href="../subject-block">
 		                     <i class="material-icons">content_paste</i>
-		                     <p>Przedmioty</p>
+		                     <p>Zajęcia</p>
 		                  </a>
 		               </li>
+		               <c:choose>
+		               <c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-subject'}">
+		               <li class="active">
+		               </c:when>
+		               <c:otherwise>
 		               <li>
+		               </c:otherwise>
+		               </c:choose>
 		                  <a href="../subject-block/add-subject">
-		                     <i class="material-icons">grade</i>
+		                     <i class="material-icons">add_circle_outline</i>
 		                     <p>Dodaj przedmiot</p>
 		                  </a>
 		               </li>
+		               <c:choose>
+		               <c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-subject-form'}">
+		               <li class="active">
+		               </c:when>
+		               <c:otherwise>
 		               <li>
+		               </c:otherwise>
+		               </c:choose>
 		                  <a href="../subject-block/add-subject-form">
-		                     <i class="material-icons">grade</i>
+		                     <i class="material-icons">add_circle_outline</i>
 		                     <p>Dodaj formę zajęć</p>
 		                  </a>
 		               </li>
+		               <c:choose>
+		               <c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-group'}">
+		               <li class="active">
+		               </c:when>
+		               <c:otherwise>
 		               <li>
+		               </c:otherwise>
+		               </c:choose>
 		                  <a href="../subject-block/add-group">
-		                     <i class="material-icons">grade</i>
+		                     <i class="material-icons">add_circle_outline</i>
 		                     <p>Dodaj grupę</p>
 		                  </a>
 		               </li>
@@ -114,7 +150,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand">Dodaj zajęcia</a>
+							<a class="navbar-brand"><c:out value="${description}" /></a>
 						</div>
 						<div class="collapse navbar-collapse">
 							<ul class="nav navbar-nav navbar-right">
@@ -137,15 +173,15 @@
 		               <div class="col-md-12">
 		                 	<div class="card">
                            <div class="card-header" data-background-color="green">
-                              <h4 class="title">Zajęcia</h4>
-                              <p class="category">Dodaj zajęcia</p>
+                              <h4 class="title"><c:out value="${title}" /></h4>
+                              <p class="category"><c:out value="${description}" /></p>
                            </div>
 		                     <div class="card-content">
 										<div class="container-fluid">
 											<form:form modelAttribute="dictionaryElement" method="post" id="dictionaryElementForm">
 												<div class="form-group label-floating">
 											    	<label class="control-label" for="name">Wprowadź nazwę:</label>
-											    	<input type="text" name="name" id="name" required maxlength="45">
+											    	<input class="form-control" type="text" name="name" id="name" required maxlength="45">
 											 	</div>
 											 	<button type="submit" class="btn btn-primary pull-right">Zapisz</button>
 											</form:form>

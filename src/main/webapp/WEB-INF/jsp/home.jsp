@@ -39,7 +39,7 @@
 	
 		    	<div class="sidebar-wrapper">
 					<ul class="nav">
-						<li>
+					<li class="active">
 		               <a href="../home">
 		                  <i class="material-icons">dashboard</i>
 		                  <p>Aktualności</p>
@@ -66,27 +66,27 @@
 		                     <p>Dodaj ocenę</p>
 		                  </a>
 		               </li>
-		               <li class="active">
+		               <li>
 		                  <a href="../subject-block">
 		                     <i class="material-icons">content_paste</i>
-		                     <p>Przedmioty</p>
+		                     <p>Zajęcia</p>
 		                  </a>
 		               </li>
 		               <li>
 		                  <a href="../subject-block/add-subject">
-		                     <i class="material-icons">grade</i>
+		                     <i class="material-icons">add_circle_outline</i>
 		                     <p>Dodaj przedmiot</p>
 		                  </a>
 		               </li>
 		               <li>
 		                  <a href="../subject-block/add-subject-form">
-		                     <i class="material-icons">grade</i>
+		                     <i class="material-icons">add_circle_outline</i>
 		                     <p>Dodaj formę zajęć</p>
 		                  </a>
 		               </li>
 		               <li>
 		                  <a href="../subject-block/add-group">
-		                     <i class="material-icons">grade</i>
+		                     <i class="material-icons">add_circle_outline</i>
 		                     <p>Dodaj grupę</p>
 		                  </a>
 		               </li>

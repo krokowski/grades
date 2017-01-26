@@ -46,7 +46,7 @@
 		               </a>
 		            </li>
 		            <sec:authorize access="hasRole('ROLE_STUDENT')">
-			            <li>
+			            <li class="active">
 			               <a href="grades">
 			                  <i class="material-icons">grade</i>
 			                  <p>Oceny</p>
@@ -66,7 +66,7 @@
 		                     <p>Dodaj ocenę</p>
 		                  </a>
 		               </li>
-		               <li class="active">
+		               <li>
 		                  <a href="../subject-block">
 		                     <i class="material-icons">content_paste</i>
 		                     <p>Przedmioty</p>
