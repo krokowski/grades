@@ -7,14 +7,17 @@
  	<c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-subject'}">
 		<c:set var="title" value="Przedmiot" />
 		<c:set var="description" value="Dodaj przedmiot" />
+		<c:set var="successMessage" value="Pomyślnie dodano nowy przedmiot" />
 	</c:when>
 	<c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-subject-form'}">
 		<c:set var="title" value="Forma zajęć" />
 		<c:set var="description" value="Dodaj formę zajęć" />
+		<c:set var="successMessage" value="Pomyślnie dodano nową formę zajęć" />
 	</c:when>
 	<c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/subject-block/add-group'}">
 		<c:set var="title" value="Grupa" />
 		<c:set var="description" value="Dodaj grupę" />
+		<c:set var="successMessage" value="Pomyślnie dodano nową grupę" />
 	</c:when>
 </c:choose>
 
@@ -177,7 +180,12 @@
                               <p class="category"><c:out value="${description}" /></p>
                            </div>
 		                     <div class="card-content">
-										<div class="container-fluid">
+		                     				<c:if test="${successMessageShow}">
+												<div class="alert alert-success alert-with-icon" data-notify="container">
+				                               		<i data-notify="icon" class="material-icons">info_outline</i>
+													<span data-notify="message"><c:out value="${successMessage}" /></span>
+												</div>
+											</c:if> 
 											<form:form modelAttribute="dictionaryElement" method="post" id="dictionaryElementForm">
 												<div class="form-group label-floating">
 											    	<label class="control-label" for="name">Wprowadź nazwę:</label>
@@ -185,7 +193,6 @@
 											 	</div>
 											 	<button type="submit" class="btn btn-primary pull-right">Zapisz</button>
 											</form:form>
-										</div>
 									</div>
 								</div>
 							</div>

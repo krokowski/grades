@@ -70,39 +70,42 @@ public class SubjectBlockController {
 	}
 
 	@GetMapping(path = "/add-subject")
-	public String getSubjectAddForm() {
+	public String getSubjectAddForm(Model model) {
+		model.addAttribute("successMessageShow", false);
 		return "subjectBlock/addSubjectBlockComponent";
 	}
 
 	@PostMapping(path = "/add-subject")
-	public String createSubject(HttpServletRequest request,
-			@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, BindingResult result) {
+	public String createSubject(@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, Model model) {
 		dictionaryService.createSubject(dictionaryElement);
-		return "redirect:/subject-block";
+		model.addAttribute("successMessageShow", true);
+		return "subjectBlock/addSubjectBlockComponent";
 	}
 
 	@GetMapping(path = "/add-subject-form")
-	public String getSubjectFormAddForm() {
+	public String getSubjectFormAddForm(Model model) {
+		model.addAttribute("successMessageShow", false);
 		return "subjectBlock/addSubjectBlockComponent";
 	}
 
 	@PostMapping(path = "/add-subject-form")
-	public String createSubjectForm(HttpServletRequest request,
-			@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, BindingResult result) {
+	public String createSubjectForm(@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, Model model) {
 		dictionaryService.createSubjectForm(dictionaryElement);
-		return "redirect:/subject-block";
+		model.addAttribute("successMessageShow", true);
+		return "subjectBlock/addSubjectBlockComponent";
 	}
 
 	@GetMapping(path = "/add-group")
-	public String getGroupAddForm() {
+	public String getGroupAddForm(Model model) {
+		model.addAttribute("successMessageShow", false);
 		return "subjectBlock/addSubjectBlockComponent";
 	}
 
 	@PostMapping(path = "/add-group")
-	public String createGroup(HttpServletRequest request,
-			@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, BindingResult result) {
+	public String createGroup(@ModelAttribute("dictionaryElement") @Valid DictionaryElement dictionaryElement, Model model) {
 		dictionaryService.createGroup(dictionaryElement);
-		return "redirect:/subject-block";
+		model.addAttribute("successMessageShow", true);
+		return "subjectBlock/addSubjectBlockComponent";
 	}
 
 }
